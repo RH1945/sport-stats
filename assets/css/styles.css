@@ -1,0 +1,42 @@
+
+/* CSS Variables */
+:root {
+    --primary-font: "Fugaz One", sans-serif;
+    --secondary-font: "Funnel Display", sans-serif;
+    --primary-color: #ff0001; /* dark brown */
+    --secondary-color: #aa9581; /* light brown */
+    --highlight-color: #416a8e; /* blue */
+    --highlight-color-light: #7a9fc2; /* light blue */
+
+
+}
+
+/* Placeholder styles */
+
+
+.navbar {
+    min-height: 80px;
+    background-color: var(--primary-color);
+    font-family: var(--primary-font);
+    font-size: 48px;
+}
+
+logo {
+    position: relative;
+    max-height: 1rem;
+    max-width: 1rem;
+    padding: 5px;
+}
+
+.maparea {
+    font-family: var(--secondary-font);
+    text-align: center;
+    margin: 0 80px;
+    height: 500px;
+    background-color: rgba(158, 51, 94, 0.63);
+    position: relative;
+}
+.selection {
+    padding-top: 10px;
+    border: #050505 1px solid;
+}

@@ -654,10 +654,16 @@ async function populateTeams() {
         const data = await getTeams();
 
         // Default option
-        const allOption = document.createElement("option");
-        allOption.value = "";
-        allOption.textContent = "All Teams";
-        teamsList.appendChild(allOption);
+        // const allOption = document.createElement("option");
+        // allOption.value = "";
+        // allOption.textContent = "All Teams";
+        // teamsList.appendChild(allOption);
+
+        const noTeamOption = document.createElement("option");
+        noTeamOption.value = "";
+        noTeamOption.textContent = "No Team selected";
+        // make it default
+        noTeamOption.selected = true;
 
         data.data.forEach((team) => {
             const option = document.createElement("option");
@@ -726,5 +732,13 @@ teamsList.addEventListener("change", () => {
 // Initialise
 document.addEventListener("DOMContentLoaded", async () => {
     await populateTeams();
-    displayGames(); // show all games by default
+    // // Event listener for dropdown change
+    const selectedTeamId = teamsList.value;
+
+    if (selectedTeamId === "") {
+        gamesList.innerHTML = "<p>No team selected. No games to display.</p>";
+        return;
+    }
+
+    displayGames(selectedTeamId);
 });

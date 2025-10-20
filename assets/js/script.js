@@ -615,11 +615,25 @@ var simplemaps_usmap_mapdata = {
 const apiKey = "7d6eef70-2823-4b93-b2c0-7de715a5ffc4";
 const urlAdd = "https://api.balldontlie.io/v1";
 
-async function getGames({ start_date, end_date }) {
+// Function added to get Teams stats
+async function getTeams() {
+    const res = await fetch(`${urlAdd}/teams`, {
+        headers: { Authorization: `Bearer ${apiKey}` },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.json();
+}
+
+async function getGames({ start_date, end_date, teamId = null }) {
     // This part builds the complete API url address, encodeURIComponent ensures data is safely encoded for use in url
-    const url = `${urlAdd}/games?start_date=${encodeURIComponent(
+    let url = `${urlAdd}/games?start_date=${encodeURIComponent(
         start_date
     )}&end_date=${encodeURIComponent(end_date)}`;
+
+    // If a team ID is provided, add it as a filter
+    if (teamId) {
+        url += `&team_ids[]=${encodeURIComponent(teamId)}`;
+    }
 
     // Sends an HTTP GET request to the API, await pauses execution until fetch request completes
     const res = await fetch(url, {
@@ -632,22 +646,58 @@ async function getGames({ start_date, end_date }) {
 }
 
 const gamesList = document.getElementById("games-list");
+const teamsList = document.getElementById("team-select");
+
+// Asynchronous function to handle displaying Teams in the DOM
+async function populateTeams() {
+    try {
+        const data = await getTeams();
+
+        // Default option
+        // const allOption = document.createElement("option");
+        // allOption.value = "";
+        // allOption.textContent = "All Teams";
+        // teamsList.appendChild(allOption);
+
+        const noTeamOption = document.createElement("option");
+        noTeamOption.value = "";
+        noTeamOption.textContent = "No Team selected";
+        // make it default
+        noTeamOption.selected = true;
+
+        data.data.forEach((team) => {
+            const option = document.createElement("option");
+            option.value = team.id;
+            option.textContent = team.full_name;
+            teamsList.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Error loading teams:", error);
+    }
+}
 
 // Asynchronous function to handle displaying games in the DOM
-async function displayGames() {
+async function displayGames(teamId = null) {
+    // The conditional prevents the function running is the element is missing, avoids errors
     if (!gamesList) return;
     gamesList.innerHTML = "<p>Loading games...</p>";
 
+    // This calls getGames and waits for a response
     try {
         const data = await getGames({
             start_date: "2025-10-01",
             end_date: "2025-10-31",
+            teamId,
         });
+        // Clears loading message
         gamesList.innerHTML = "";
+
+        // Loops through each game in the data.data array (the API returns an object with a data array)
         data.data.forEach((game) => {
             const gameItem = document.createElement("div");
-            gameItem.classList.add("game"); // match CSS
+            gameItem.classList.add("game"); // match CSS style
 
+            // Converts the game's date string to a human-readable format using local time settings
             const gameDate = new Date(game.date).toLocaleDateString("en-US", {
                 weekday: "short",
                 month: "short",
@@ -661,8 +711,11 @@ async function displayGames() {
                 ${gameDate} <br>
                 Status: ${game.status}
             `;
+            // Adds in the newly created game <div> to the gamesList container in the DOM
             gamesList.appendChild(gameItem);
         });
+
+        // Logs any errors occuring during the fetch and updates DOM with error message
     } catch (error) {
         console.error("Error loading games:", error);
         gamesList.innerHTML =
@@ -670,6 +723,22 @@ async function displayGames() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    displayGames();
+// Event listener for dropdown change
+teamsList.addEventListener("change", () => {
+    const selectedTeamId = teamsList.value || null;
+    displayGames(selectedTeamId);
+});
+
+// Initialise
+document.addEventListener("DOMContentLoaded", async () => {
+    await populateTeams();
+    // // Event listener for dropdown change
+    const selectedTeamId = teamsList.value;
+
+    if (selectedTeamId === "") {
+        gamesList.innerHTML = "<p>No team selected. No games to display.</p>";
+        return;
+    }
+
+    displayGames(selectedTeamId);
 });

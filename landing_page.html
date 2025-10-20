@@ -66,12 +66,25 @@
 
         <!-- Section for upcoming games -->
         <section id="games-calendar">
-            <h2>Upcoming Games</h2>
+            <div>
+                <h2>Upcoming Games</h2>
+            </div>
+            <div>
+                <label for="team-select">Select Team: </label>
+                <select id="team-select">
+                    <option value="">All Teams</option>
+                    <option value="" selected>No Team Selected</option>
+                </select>
+            </div>
             <div id="games-list">
                 <div id="game-card"></div>
             </div>
         </section>
 
+        <!-- Elfsight RSS Feed | Stats all folks -->
+
+
+        <div class="elfsight-app-477a483a-b8b2-4096-89a2-722212cead4b" data-elfsight-app-lazy></div>
     </main>
 
     <footer>
@@ -81,7 +94,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script type="module" src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="https://elfsightcdn.com/platform.js" async></script>
 </body>
 
 </html>

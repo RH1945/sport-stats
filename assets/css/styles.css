@@ -52,15 +52,12 @@ footer {
     --secondary-color: #aa9581; /* light brown */
     --highlight-color: #416a8e; /* blue */
     --highlight-color-light: #7a9fc2; /* light blue */
-
-
 }
 
 /* Placeholder styles */
 
 #map {
     width: 60%;
-
 }
 .navbar {
     min-height: 80px;
@@ -87,4 +84,41 @@ logo {
 .selection {
     padding-top: 10px;
     border: #050505 1px solid;
+}
+
+/* Games Calender */
+#games-calendar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: lightblue;
+    border-radius: 10px;
+}
+
+.game {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    width: 280px;
+    line-height: 1.6;
+}
+
+.game:last-child {
+    border-bottom: none;
+}
+
+.game:hover {
+    background-color: grey;
+}
+
+/* Media queries */
+@media (max-width: 600px) {
+    .game {
+        width: 100%;
+    }
 }

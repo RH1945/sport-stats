@@ -1,7 +1,34 @@
+// Code to add audio functionality
+// DOM variables
+// const fetchButton = document.querySelector("button");
+// const paragraph = document.querySelector("p");
+// const clickSound = new Audio("assets/media/click-345983.mp3");
+// const successSound = new Audio("assets/media/goodresult-82807.mp3");
+// successSound.volume = 0.3; // Sample very loud
+// clickSound.preload = "auto"; // Pre-loads the sample as it will be used alot
 
+// // Event listeners
+// fetchButton.addEventListener("click", fetchTeam);
+
+// // Function
+// function fetchTeam() {
+//     // Play the click sound
+//     clickSound.currentTime = 0; // This rewinds it if played before
+//     clickSound.play();
+
+//     // Delay before playing this sound
+//     setTimeout(() => {
+//         successSound.currentTime = 0;
+//         successSound.play();
+//     }, 600); // 300ms delay
+
+//     // Change the text
+//     paragraph.style.color = "blue";
+//     paragraph.style.fontSize = "5rem";
+// }
 
 //Map
-var simplemaps_usmap_mapdata={
+var simplemaps_usmap_mapdata = {
     main_settings: {
         //General settings
         width: "responsive", //'700' or 'responsive'
@@ -20,7 +47,8 @@ var simplemaps_usmap_mapdata={
         all_states_zoomable: "yes",
 
         //Location defaults
-        location_description: "Add location markers using latitude and longitude!",
+        location_description:
+            "Add location markers using latitude and longitude!",
         location_color: "#2041D4",
         location_opacity: 0.8,
         location_hover_opacity: 1,
@@ -70,194 +98,194 @@ var simplemaps_usmap_mapdata={
         link_text: "View Website",
         state_image_url: "",
         state_image_position: "",
-        location_image_url: ""
+        location_image_url: "",
     },
     state_specific: {
         HI: {
-            name: "Hawaii"
+            name: "Hawaii",
         },
         AK: {
-            name: "Alaska"
+            name: "Alaska",
         },
         FL: {
-            name: "Florida"
+            name: "Florida",
         },
         NH: {
-            name: "New Hampshire"
+            name: "New Hampshire",
         },
         VT: {
-            name: "Vermont"
+            name: "Vermont",
         },
         ME: {
-            name: "Maine"
+            name: "Maine",
         },
         RI: {
-            name: "Rhode Island"
+            name: "Rhode Island",
         },
         NY: {
-            name: "New York"
+            name: "New York",
         },
         PA: {
-            name: "Pennsylvania"
+            name: "Pennsylvania",
         },
         NJ: {
-            name: "New Jersey"
+            name: "New Jersey",
         },
         DE: {
-            name: "Delaware"
+            name: "Delaware",
         },
         MD: {
-            name: "Maryland"
+            name: "Maryland",
         },
         VA: {
-            name: "Virginia"
+            name: "Virginia",
         },
         WV: {
-            name: "West Virginia"
+            name: "West Virginia",
         },
         OH: {
-            name: "Ohio"
+            name: "Ohio",
         },
         IN: {
-            name: "Indiana"
+            name: "Indiana",
         },
         IL: {
-            name: "Illinois"
+            name: "Illinois",
         },
         CT: {
-            name: "Connecticut"
+            name: "Connecticut",
         },
         WI: {
-            name: "Wisconsin"
+            name: "Wisconsin",
         },
         NC: {
-            name: "North Carolina"
+            name: "North Carolina",
         },
         DC: {
-            name: "District of Columbia"
+            name: "District of Columbia",
         },
         MA: {
-            name: "Massachusetts"
+            name: "Massachusetts",
         },
         TN: {
-            name: "Tennessee"
+            name: "Tennessee",
         },
         AR: {
-            name: "Arkansas"
+            name: "Arkansas",
         },
         MO: {
-            name: "Missouri"
+            name: "Missouri",
         },
         GA: {
-            name: "Georgia"
+            name: "Georgia",
         },
         SC: {
-            name: "South Carolina"
+            name: "South Carolina",
         },
         KY: {
-            name: "Kentucky"
+            name: "Kentucky",
         },
         AL: {
-            name: "Alabama"
+            name: "Alabama",
         },
         LA: {
-            name: "Louisiana"
+            name: "Louisiana",
         },
         MS: {
-            name: "Mississippi"
+            name: "Mississippi",
         },
         IA: {
-            name: "Iowa"
+            name: "Iowa",
         },
         MN: {
-            name: "Minnesota"
+            name: "Minnesota",
         },
         OK: {
-            name: "Oklahoma"
+            name: "Oklahoma",
         },
         TX: {
-            name: "Texas"
+            name: "Texas",
         },
         NM: {
-            name: "New Mexico"
+            name: "New Mexico",
         },
         KS: {
-            name: "Kansas"
+            name: "Kansas",
         },
         NE: {
-            name: "Nebraska"
+            name: "Nebraska",
         },
         SD: {
-            name: "South Dakota"
+            name: "South Dakota",
         },
         ND: {
-            name: "North Dakota"
+            name: "North Dakota",
         },
         WY: {
-            name: "Wyoming"
+            name: "Wyoming",
         },
         MT: {
-            name: "Montana"
+            name: "Montana",
         },
         CO: {
-            name: "Colorado"
+            name: "Colorado",
         },
         UT: {
-            name: "Utah"
+            name: "Utah",
         },
         AZ: {
-            name: "Arizona"
+            name: "Arizona",
         },
         NV: {
-            name: "Nevada"
+            name: "Nevada",
         },
         OR: {
-            name: "Oregon"
+            name: "Oregon",
         },
         WA: {
-            name: "Washington"
+            name: "Washington",
         },
         CA: {
-            name: "California"
+            name: "California",
         },
         MI: {
-            name: "Michigan"
+            name: "Michigan",
         },
         ID: {
-            name: "Idaho"
+            name: "Idaho",
         },
         GU: {
             name: "Guam",
-            hide: "yes"
+            hide: "yes",
         },
         VI: {
             name: "Virgin Islands",
-            hide: "yes"
+            hide: "yes",
         },
         PR: {
             name: "Puerto Rico",
-            hide: "yes"
+            hide: "yes",
         },
         MP: {
             name: "Northern Mariana Islands",
-            hide: "yes"
+            hide: "yes",
         },
         AS: {
             name: "American Samoa",
-            hide: "yes"
-        }
+            hide: "yes",
+        },
     },
     locations: {
-        "0": {
+        0: {
             name: "New York City",
             lat: 40.7143528,
-            lng: -74.0059731
+            lng: -74.0059731,
         },
-        "1": {
+        1: {
             name: "Anchorage",
             lat: 61.2180556,
-            lng: -149.9002778
-        }
+            lng: -149.9002778,
+        },
     },
     labels: {
         NH: {
@@ -266,7 +294,7 @@ var simplemaps_usmap_mapdata={
             y: "183",
             pill: "yes",
             width: 45,
-            display: "all"
+            display: "all",
         },
         VT: {
             parent_id: "VT",
@@ -274,7 +302,7 @@ var simplemaps_usmap_mapdata={
             y: "243",
             pill: "yes",
             width: 45,
-            display: "all"
+            display: "all",
         },
         RI: {
             parent_id: "RI",
@@ -282,7 +310,7 @@ var simplemaps_usmap_mapdata={
             y: "273",
             pill: "yes",
             width: 45,
-            display: "all"
+            display: "all",
         },
         NJ: {
             parent_id: "NJ",
@@ -290,7 +318,7 @@ var simplemaps_usmap_mapdata={
             y: "273",
             pill: "yes",
             width: 45,
-            display: "all"
+            display: "all",
         },
         DE: {
             parent_id: "DE",
@@ -298,7 +326,7 @@ var simplemaps_usmap_mapdata={
             y: "303",
             pill: "yes",
             width: 45,
-            display: "all"
+            display: "all",
         },
         MD: {
             parent_id: "MD",
@@ -306,7 +334,7 @@ var simplemaps_usmap_mapdata={
             y: "303",
             pill: "yes",
             width: 45,
-            display: "all"
+            display: "all",
         },
         DC: {
             parent_id: "DC",
@@ -314,7 +342,7 @@ var simplemaps_usmap_mapdata={
             y: "332",
             pill: "yes",
             width: 45,
-            display: "all"
+            display: "all",
         },
         MA: {
             parent_id: "MA",
@@ -322,7 +350,7 @@ var simplemaps_usmap_mapdata={
             y: "213",
             pill: "yes",
             width: 45,
-            display: "all"
+            display: "all",
         },
         CT: {
             parent_id: "CT",
@@ -330,258 +358,318 @@ var simplemaps_usmap_mapdata={
             y: "243",
             pill: "yes",
             width: 45,
-            display: "all"
+            display: "all",
         },
         HI: {
             parent_id: "HI",
             x: 305,
             y: 565,
-            pill: "yes"
+            pill: "yes",
         },
         AK: {
             parent_id: "AK",
             x: "113",
-            y: "495"
+            y: "495",
         },
         FL: {
             parent_id: "FL",
             x: "773",
-            y: "510"
+            y: "510",
         },
         ME: {
             parent_id: "ME",
             x: "893",
-            y: "85"
+            y: "85",
         },
         NY: {
             parent_id: "NY",
             x: "815",
-            y: "158"
+            y: "158",
         },
         PA: {
             parent_id: "PA",
             x: "786",
-            y: "210"
+            y: "210",
         },
         VA: {
             parent_id: "VA",
             x: "790",
-            y: "282"
+            y: "282",
         },
         WV: {
             parent_id: "WV",
             x: "744",
-            y: "270"
+            y: "270",
         },
         OH: {
             parent_id: "OH",
             x: "700",
-            y: "240"
+            y: "240",
         },
         IN: {
             parent_id: "IN",
             x: "650",
-            y: "250"
+            y: "250",
         },
         IL: {
             parent_id: "IL",
             x: "600",
-            y: "250"
+            y: "250",
         },
         WI: {
             parent_id: "WI",
             x: "575",
-            y: "155"
+            y: "155",
         },
         NC: {
             parent_id: "NC",
             x: "784",
-            y: "326"
+            y: "326",
         },
         TN: {
             parent_id: "TN",
             x: "655",
-            y: "340"
+            y: "340",
         },
         AR: {
             parent_id: "AR",
             x: "548",
-            y: "368"
+            y: "368",
         },
         MO: {
             parent_id: "MO",
             x: "548",
-            y: "293"
+            y: "293",
         },
         GA: {
             parent_id: "GA",
             x: "718",
-            y: "405"
+            y: "405",
         },
         SC: {
             parent_id: "SC",
             x: "760",
-            y: "371"
+            y: "371",
         },
         KY: {
             parent_id: "KY",
             x: "680",
-            y: "300"
+            y: "300",
         },
         AL: {
             parent_id: "AL",
             x: "655",
-            y: "405"
+            y: "405",
         },
         LA: {
             parent_id: "LA",
             x: "550",
-            y: "435"
+            y: "435",
         },
         MS: {
             parent_id: "MS",
             x: "600",
-            y: "405"
+            y: "405",
         },
         IA: {
             parent_id: "IA",
             x: "525",
-            y: "210"
+            y: "210",
         },
         MN: {
             parent_id: "MN",
             x: "506",
-            y: "124"
+            y: "124",
         },
         OK: {
             parent_id: "OK",
             x: "460",
-            y: "360"
+            y: "360",
         },
         TX: {
             parent_id: "TX",
             x: "425",
-            y: "435"
+            y: "435",
         },
         NM: {
             parent_id: "NM",
             x: "305",
-            y: "365"
+            y: "365",
         },
         KS: {
             parent_id: "KS",
             x: "445",
-            y: "290"
+            y: "290",
         },
         NE: {
             parent_id: "NE",
             x: "420",
-            y: "225"
+            y: "225",
         },
         SD: {
             parent_id: "SD",
             x: "413",
-            y: "160"
+            y: "160",
         },
         ND: {
             parent_id: "ND",
             x: "416",
-            y: "96"
+            y: "96",
         },
         WY: {
             parent_id: "WY",
             x: "300",
-            y: "180"
+            y: "180",
         },
         MT: {
             parent_id: "MT",
             x: "280",
-            y: "95"
+            y: "95",
         },
         CO: {
             parent_id: "CO",
             x: "320",
-            y: "275"
+            y: "275",
         },
         UT: {
             parent_id: "UT",
             x: "223",
-            y: "260"
+            y: "260",
         },
         AZ: {
             parent_id: "AZ",
             x: "205",
-            y: "360"
+            y: "360",
         },
         NV: {
             parent_id: "NV",
             x: "140",
-            y: "235"
+            y: "235",
         },
         OR: {
             parent_id: "OR",
             x: "100",
-            y: "120"
+            y: "120",
         },
         WA: {
             parent_id: "WA",
             x: "130",
-            y: "55"
+            y: "55",
         },
         ID: {
             parent_id: "ID",
             x: "200",
-            y: "150"
+            y: "150",
         },
         CA: {
             parent_id: "CA",
             x: "79",
-            y: "285"
+            y: "285",
         },
         MI: {
             parent_id: "MI",
             x: "663",
-            y: "185"
+            y: "185",
         },
         PR: {
             parent_id: "PR",
             x: "620",
-            y: "545"
+            y: "545",
         },
         GU: {
             parent_id: "GU",
             x: "550",
-            y: "540"
+            y: "540",
         },
         VI: {
             parent_id: "VI",
             x: "680",
-            y: "519"
+            y: "519",
         },
         MP: {
             parent_id: "MP",
             x: "570",
-            y: "575"
+            y: "575",
         },
         AS: {
             parent_id: "AS",
             x: "665",
-            y: "580"
-        }
+            y: "580",
+        },
     },
     legend: {
-        entries: []
+        entries: [],
     },
     regions: {
-        "0": {
-            states: [
-                "washington",
-                "oregon"
-            ],
+        0: {
+            states: ["washington", "oregon"],
             name: "pacific north west",
             hover_color: "green",
             description: "democratic cool artsy people",
-            zoomable: "yes"
-        }
-    }
+            zoomable: "yes",
+        },
+    },
 };
+
+// Games calender
+const apiKey = "7d6eef70-2823-4b93-b2c0-7de715a5ffc4";
+const urlAdd = "https://api.balldontlie.io/v1";
+
+async function getGames({ start_date, end_date }) {
+    // This part builds the complete API url address, encodeURIComponent ensures data is safely encoded for use in url
+    const url = `${urlAdd}/games?start_date=${encodeURIComponent(
+        start_date
+    )}&end_date=${encodeURIComponent(end_date)}`;
+
+    // Sends an HTTP GET request to the API, await pauses execution until fetch request completes
+    const res = await fetch(url, {
+        headers: { Authorization: `Bearer ${apiKey}` },
+    });
+    // Conditional statement to check if HTTP response is not OK ie 404 and returns error code if there is one
+    if (!res.ok) throw new Error(`Balldontlie HTTP ${res.status}`);
+    // Converts HTTP response to a JSON
+    return res.json();
+}
+
+const gamesList = document.getElementById("games-list");
+
+// Asynchronous function to handle displaying games in the DOM
+async function displayGames() {
+    if (!gamesList) return;
+    gamesList.innerHTML = "<p>Loading games...</p>";
+
+    try {
+        const data = await getGames({
+            start_date: "2025-10-01",
+            end_date: "2025-10-31",
+        });
+        gamesList.innerHTML = "";
+        data.data.forEach((game) => {
+            const gameItem = document.createElement("div");
+            gameItem.classList.add("game"); // match CSS
+
+            const gameDate = new Date(game.date).toLocaleDateString("en-US", {
+                weekday: "short",
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+            });
+
+            gameItem.innerHTML = `
+                <strong>${game.home_team.full_name}</strong> vs <strong>${game.visitor_team.full_name}</strong><br>
+                ${gameDate} <br>
+                Status: ${game.status}
+            `;
+            gamesList.appendChild(gameItem);
+        });
+    } catch (error) {
+        console.error("Error loading games:", error);
+        gamesList.innerHTML =
+            "<p>Failed to load games. Please try again later.</p>";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    displayGames();
+});

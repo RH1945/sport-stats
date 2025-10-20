@@ -4,23 +4,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--    map-->
+    <!--    map-->
     <script type="text/javascript" src="assets/js/mapdata.js"></script>
-    <script  type="text/javascript" src="assets/js/usmap.js"></script>
+    <script type="text/javascript" src="assets/js/usmap.js"></script>
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Funnel+Display:wght@300..800&display=swap"
+        rel="stylesheet">
     <!-- Description-->
     <meta name="description"
-          content="Boardwalk Games, your ultimate gaming retreat! Perfect for casual gamers, enthusiasts, and student gatherings. Visit us for your next adventure in board gaming.">
+        content="Boardwalk Games, your ultimate gaming retreat! Perfect for casual gamers, enthusiasts, and student gatherings. Visit us for your next adventure in board gaming.">
     <!-- icons -->
-<!--    <a href="https://www.flaticon.com/free-icons/nba" title="nba icons">Nba icons created by Chanut-is-Industries - Flaticon</a>-->
+    <!--    <a href="https://www.flaticon.com/free-icons/nba" title="nba icons">Nba icons created by Chanut-is-Industries - Flaticon</a>-->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="33x32" href="assets/images/icon-33x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icon-16x16.png">
     <!--Booty strap css  -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- custom css -->
     <link href="assets/css/styles.css" rel="stylesheet">
     <!-- Title -->
@@ -28,44 +30,58 @@
 </head>
 
 <body>
-<nav class="navbar">
-    <div class="container">
-        <a class="navbar-brand navbar" href="#">
-            <img src="assets/images/sport.png" alt="Bootstrap" width="60" height="60">
-        </a>
-        <div>
-            Stats All Folks
-        </div>
-    </div>
-
-
-</nav>
-<header class="vh-100 header" id="header">
-    <div class="section"><div id="map"></div></div>
-</header>
-
-<main>
-
-    <div class="container text-center">
-        <div class="row">
-            <div class="col selection">
-                instructions
-            </div>
-            <div class="col selection">
-                sources
-            </div>
-            <div class="col selection">
-                about the site
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand navbar" href="#">
+                <img src="assets/images/sport.png" alt="Bootstrap" width="60" height="60">
+            </a>
+            <div>
+                Stats All Folks
             </div>
         </div>
-    </div>
-</main>
 
-<footer>
 
-</footer>
+    </nav>
+    <header class="vh-100 header" id="header">
+        <div class="section">
+            <div id="map"></div>
+        </div>
+    </header>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <main>
+
+        <div class="container text-center">
+            <div class="row">
+                <div class="col selection">
+                    instructions
+                </div>
+                <div class="col selection">
+                    sources
+                </div>
+                <div class="col selection">
+                    about the site
+                </div>
+            </div>
+        </div>
+
+        <!-- Section for upcoming games -->
+        <section id="games-calendar">
+            <h2>Upcoming Games</h2>
+            <div id="games-list">
+                <div id="game-card"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script type="module" src="assets/js/script.js"></script>
 </body>
 
 </html>

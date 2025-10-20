@@ -13,7 +13,10 @@
 
 /* Placeholder styles */
 
+#map {
+    width: 60%;
 
+}
 .navbar {
     min-height: 80px;
     background-color: var(--primary-color);

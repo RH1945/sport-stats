@@ -1,18 +1,117 @@
-.flex-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 800px;
-    justify-content: space-between;
-    align-items: center;
+/*video specific styles*/
+p {
+    color: orangered;
+    font-weight: bold;
 }
 
-div {
+.text-center {
+    text-align: center;
+}
+/* Background video wrapper (place a <div class="bg-video"> with a <video> inside in your HTML) */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none; /* allow clicks through the video */
+}
+
+/* the combination of width/height 100% + object-fit: cover keeps the video covering the viewport
+   while preserving aspect ratio and staying responsive */
+.bg-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    will-change: transform;
+}
+
+/* Ensure page content appears above the video */
+.content,
+main,
+header,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* CSS Variables */
+:root {
+    --primary-font: "Fugaz One", sans-serif;
+    --secondary-font: "Funnel Display", sans-serif;
+    --primary-color: #ff0001; /* dark brown */
+    --secondary-color: #aa9581; /* light brown */
+    --highlight-color: #416a8e; /* blue */
+    --highlight-color-light: #7a9fc2; /* light blue */
+}
+
+/* Placeholder styles */
+
+#map {
+    width: 60%;
+}
+.navbar {
+    min-height: 80px;
+    background-color: var(--primary-color);
+    font-family: var(--primary-font);
+    font-size: 48px;
+}
+
+logo {
+    position: relative;
+    max-height: 1rem;
+    max-width: 1rem;
+    padding: 5px;
+}
+
+.maparea {
+    font-family: var(--secondary-font);
+    text-align: center;
+    margin: 0 80px;
     height: 500px;
-    width: 500px;
-    background-color: blue;
-    margin: 10px;
+    background-color: rgba(158, 51, 94, 0.63);
+    position: relative;
+}
+.selection {
+    padding-top: 10px;
+    border: #050505 1px solid;
 }
 
-div :hover {
+/* Games Calender */
+#games-calendar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: lightblue;
+    border-radius: 10px;
+}
+
+.game {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    width: 280px;
+    line-height: 1.6;
+}
+
+.game:last-child {
+    border-bottom: none;
+}
+
+.game:hover {
     background-color: grey;
 }

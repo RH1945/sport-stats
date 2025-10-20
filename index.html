@@ -3,22 +3,54 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Stats all Folks</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Stuff</title>
 </head>
 
-<body class="flex-container">
-    <p>James testing this works</p>
-    <p>James test from new branch</p>
-    <div>1
-        <button>Click Me!</button>
+<body>
+    <div class="bg-video" style="position:relative;">
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var container = document.querySelector('.bg-video');
+                var video = container && container.querySelector('video');
+                if (video) {
+                    video.removeAttribute('autoplay');
+                    video.pause();
+                }
+                var btn = document.getElementById('enter-btn');
+                if (!btn) return;
+                btn.addEventListener('click', function () {
+                    if (video) {
+                        try { video.currentTime = 0; } catch (e) { }
+                        var p = video.play();
+                        if (p && p.catch) p.catch(function () { });
+                    }
+                    btn.style.display = 'none';
+                    // change the URL below to the page you want to go to
+                    setTimeout(function () { window.location.href = 'landing_page.html'; }, 5000);
+                });
+            });
+        </script>
+        <button id="enter-btn" aria-label="Enter site" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+                   z-index:10; padding:12px 24px; font-size:18px; background:#ffffffcc;
+                   border:1px solid rgba(0,0,0,0.2); border-radius:6px; cursor:pointer;">
+            Enter
+        </button>
+        <script>
+            (function () {
+                var btn = document.getElementById('enter-btn');
+                btn.addEventListener('click', function () {
+                    btn.style.display = 'none';
+                });
+            })();
+        </script>
+        <video autoplay muted loop id="bg-video " style="width:100%; height:100vh; object-fit:cover;">
+            <source src="assets/videos/230749_small.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-
-    <script src="assets/js/script.js"></script>
+    >>>>>>> main
 </body>
 
 </html>

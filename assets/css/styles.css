@@ -115,3 +115,10 @@ logo {
 .game:hover {
     background-color: grey;
 }
+
+/* Media queries */
+@media (max-width: 600px) {
+    .game {
+        width: 100%;
+    }
+}

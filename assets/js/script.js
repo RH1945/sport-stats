@@ -612,30 +612,36 @@ var simplemaps_usmap_mapdata = {
 };
 
 // Games calender
-const BDL_API_KEY = "7d6eef70-2823-4b93-b2c0-7de715a5ffc4";
-const BDL_BASE = "https://api.balldontlie.io/v1";
+const apiKey = "7d6eef70-2823-4b93-b2c0-7de715a5ffc4";
+const urlAdd = "https://api.balldontlie.io/v1";
 
 async function getGames({ start_date, end_date }) {
-    const url = `${BDL_BASE}/games?start_date=${encodeURIComponent(
+    // This part builds the complete API url address, encodeURIComponent ensures data is safely encoded for use in url
+    const url = `${urlAdd}/games?start_date=${encodeURIComponent(
         start_date
     )}&end_date=${encodeURIComponent(end_date)}`;
+
+    // Sends an HTTP GET request to the API, await pauses execution until fetch request completes
     const res = await fetch(url, {
-        headers: { Authorization: `Bearer ${BDL_API_KEY}` },
+        headers: { Authorization: `Bearer ${apiKey}` },
     });
+    // Conditional statement to check if HTTP response is not OK ie 404 and returns error code if there is one
     if (!res.ok) throw new Error(`Balldontlie HTTP ${res.status}`);
+    // Converts HTTP response to a JSON
     return res.json();
 }
 
 const gamesList = document.getElementById("games-list");
 
+// Asynchronous function to handle displaying games in the DOM
 async function displayGames() {
     if (!gamesList) return;
     gamesList.innerHTML = "<p>Loading games...</p>";
 
     try {
         const data = await getGames({
-            start_date: "2024-10-01",
-            end_date: "2024-10-31",
+            start_date: "2025-10-01",
+            end_date: "2025-10-31",
         });
         gamesList.innerHTML = "";
         data.data.forEach((game) => {

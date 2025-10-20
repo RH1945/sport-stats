@@ -653,12 +653,6 @@ async function populateTeams() {
     try {
         const data = await getTeams();
 
-        // Default option
-        // const allOption = document.createElement("option");
-        // allOption.value = "";
-        // allOption.textContent = "All Teams";
-        // teamsList.appendChild(allOption);
-
         const noTeamOption = document.createElement("option");
         noTeamOption.value = "";
         noTeamOption.textContent = "No Team selected";
@@ -709,7 +703,7 @@ async function displayGames(teamId = null) {
             gameItem.innerHTML = `
                 <strong>${game.home_team.full_name}</strong> vs <strong>${game.visitor_team.full_name}</strong><br>
                 ${gameDate} <br>
-                Status: ${game.status}
+    
             `;
             // Adds in the newly created game <div> to the gamesList container in the DOM
             gamesList.appendChild(gameItem);

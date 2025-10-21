@@ -155,8 +155,7 @@ function renderMiniCard(idx, pos /* {x, y} from mouse */) {
     mini.innerHTML = `
     <span class="name">${info.name}</span>
     <div class="row">
-      <span class="pill">Hover for details</span>
-      <span class="pill">Click to open card</span>
+      <span class="pill">Click to open team card</span>
     </div>
   `;
     mini.style.display = 'block';

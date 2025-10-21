@@ -49,13 +49,48 @@ footer {
 :root {
     --primary-font: "Fugaz One", sans-serif;
     --secondary-font: "Funnel Display", sans-serif;
-    --primary-color: #ff0001; /* dark brown */
-    --secondary-color: #aa9581; /* light brown */
-    --highlight-color: #416a8e; /* blue */
+    --primary-color: #ff0001;
+    --secondary-color: #aa9581;
+    --highlight-color: #416a8e;
     --highlight-color-light: #7a9fc2; /* light blue */
-    --nba-blue: #17408b; /* Dark Cornflower Blue */
+    --nba-blue: #17408b; /* nba blue */
 }
 /* --- Team Card Layout --- */
+
+/* Card must be a clipping context */
+#team-card {
+    position: relative;
+    overflow: hidden;          /* clip the background logo inside the card */
+}
+
+/* Background logo layer (doesn't affect layout) */
+.team-card__bg {
+    position: absolute;
+    inset: 0;                  /* full card */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;  /* keep full logo visible, no stretching */
+    opacity: 0.20;             /* subtle; adjust 0.08–0.18 as you like */
+    filter: saturate(90%) contrast(110%);
+    pointer-events: none;      /* ignore mouse */
+    z-index: 0;
+}
+
+/* Optional readable overlay for text contrast (subtle vignette) */
+.team-card__vignette {
+    position: absolute;
+    inset: 0;
+    background:
+            radial-gradient(ellipse at center, rgba(0,0,0,0.06), transparent 60%) ,
+            linear-gradient(to bottom, rgba(0,0,0,0.03), rgba(0,0,0,0));
+    z-index: 0;
+}
+
+/* Make the actual content appear above the bg */
+.team-card__content {
+    position: relative;
+    z-index: 1;
+}
 .header .section {
     display: grid;
     grid-template-columns: 1fr;
@@ -189,6 +224,83 @@ footer {
     border-radius: 8px;
     padding: 0.2rem 0.5rem;
 }
+#team-mini .name { font-weight: 700; display: block; margin-bottom: .25rem; }
+#team-mini .row { display: flex; gap: .5rem; flex-wrap: wrap; }
+#team-mini .pill { background:#f6f7fb; border-radius: 8px; padding:.2rem .5rem; }
+
+/* ===== Team Card – visual refresh ===== */
+#team-card {
+    position: relative;
+    overflow: hidden;          /* keep bg logo clipped */
+    border-radius: 18px;
+    padding: 16px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+    color: #0b1220;
+}
+
+#team-card .team-card__bg {
+    position: absolute; inset: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: .08;              /* subtler background */
+    filter: saturate(0) contrast(110%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#team-card .team-card__vignette {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,.6), rgba(255,255,255,.1));
+    z-index: 0;
+}
+
+#team-card .team-card__content { position: relative; z-index: 1; }
+
+/* Header */
+.team-card__header { display:flex; align-items:baseline; gap:.6rem; margin-bottom:.25rem; }
+.team-card__title { font-family: "Fugaz One", system-ui, sans-serif; font-size: 1.6rem; margin:0; }
+.team-card__chips { display:flex; flex-wrap:wrap; gap:.4rem; margin:.2rem 0 .6rem; }
+.chip {
+    font-size:.78rem; padding:.28rem .5rem; border-radius:999px;
+    background:#f3f4f8; border:1px solid #e7e9f3;
+}
+
+/* Meta grid (pills) */
+.team-card__meta {
+    display:grid; grid-template-columns: repeat( auto-fit, minmax(150px,1fr) );
+    gap:.5rem; margin:.5rem 0 .75rem;
+}
+.team-card__pill {
+    background:#f6f7fb; border:1px solid #e8ebf5;
+    border-radius:12px; padding:.55rem .7rem; font-size:.92rem;
+}
+
+/* Stats tiles */
+.team-card__stats {
+    display:grid; grid-template-columns: repeat(3, 1fr);
+    gap:.6rem; margin:.25rem 0 .75rem;
+}
+@media (max-width: 520px){ .team-card__stats{ grid-template-columns: repeat(2,1fr); } }
+.stat {
+    background:#0b1b37; color:#fff; border-radius:14px; padding:.75rem; text-align:center;
+}
+.stat .label{ font-size:.78rem; opacity:.8; }
+.stat .value{ font-size:1.2rem; font-weight:700; }
+
+/* Description */
+.team-card__desc { margin:.5rem 0 .8rem; line-height:1.5; color:#162335; }
+
+/* Actions */
+.team-card__actions { display:flex; gap:.5rem; flex-wrap:wrap; }
+.team-card__btn {
+    border:1px solid #e3e6ef; border-radius:10px; padding:.55rem .85rem;
+    background:#fff; text-decoration:none; color:#0b1220;
+}
+.team-card__btn:hover{ background:#f3f5fb; }
+
 
 /* Placeholder styles */
 
@@ -321,6 +433,12 @@ footer h5 {
 }
 
 /* Media queries */
+@media (min-width: 992px) { /* desktop: card opens to the right */
+    .header .section {
+        grid-template-columns: 1fr min(380px, 35vw);
+    }
+}
+
 @media (max-width: 600px) {
     .game {
         width: 100%;

@@ -22,6 +22,10 @@ function fetchTeam() {
     //     successSound.play();
     // }, 600); // 600ms delay
 
+//     // Change the text
+//     paragraph.style.color = "blue";
+//     paragraph.style.fontSize = "5rem";
+// }
     //     // Change the text
     //     paragraph.style.color = "blue";
     //     paragraph.style.fontSize = "5rem";
@@ -29,350 +33,272 @@ function fetchTeam() {
 
 // assets/js/script.js
 
-// ---------- Utilities & data mapping ----------
-const TEAM_MAP = {
-    // Map Simplemaps "locations" indexes (mapdata.js) to metadata we need
-    // (id from balldontlie, wiki slug, and human team name)
-    0: { name: "Atlanta Hawks", bdlTeamId: 1, wiki: "Atlanta_Hawks" },
-    1: { name: "Boston Celtics", bdlTeamId: 2, wiki: "Boston_Celtics" },
-    2: { name: "Brooklyn Nets", bdlTeamId: 3, wiki: "Brooklyn_Nets" },
-    3: { name: "Charlotte Hornets", bdlTeamId: 4, wiki: "Charlotte_Hornets" },
-    4: { name: "Chicago Bulls", bdlTeamId: 6, wiki: "Chicago_Bulls" },
-    5: {
-        name: "Cleveland Cavaliers",
-        bdlTeamId: 7,
-        wiki: "Cleveland_Cavaliers",
-    },
-    6: { name: "Dallas Mavericks", bdlTeamId: 8, wiki: "Dallas_Mavericks" },
-    7: { name: "Denver Nuggets", bdlTeamId: 9, wiki: "Denver_Nuggets" },
-    8: { name: "Detroit Pistons", bdlTeamId: 10, wiki: "Detroit_Pistons" },
-    9: {
-        name: "Golden State Warriors",
-        bdlTeamId: 11,
-        wiki: "Golden_State_Warriors",
-    },
-    10: { name: "Houston Rockets", bdlTeamId: 12, wiki: "Houston_Rockets" },
-    11: { name: "Indiana Pacers", bdlTeamId: 13, wiki: "Indiana_Pacers" },
-    12: {
-        name: "Los Angeles Clippers",
-        bdlTeamId: 14,
-        wiki: "Los_Angeles_Clippers",
-    },
-    13: {
-        name: "Los Angeles Lakers",
-        bdlTeamId: 15,
-        wiki: "Los_Angeles_Lakers",
-    },
-    14: { name: "Memphis Grizzlies", bdlTeamId: 16, wiki: "Memphis_Grizzlies" },
-    15: { name: "Miami Heat", bdlTeamId: 17, wiki: "Miami_Heat" },
-    16: { name: "Milwaukee Bucks", bdlTeamId: 18, wiki: "Milwaukee_Bucks" },
-    17: {
-        name: "Minnesota Timberwolves",
-        bdlTeamId: 19,
-        wiki: "Minnesota_Timberwolves",
-    },
-    18: {
-        name: "New Orleans Pelicans",
-        bdlTeamId: 20,
-        wiki: "New Orleans_Pelicans",
-    },
-    19: { name: "New York Knicks", bdlTeamId: 21, wiki: "New York_Knicks" },
-    20: {
-        name: "Oklahoma City Thunder",
-        bdlTeamId: 22,
-        wiki: "Oklahoma_City_Thunder",
-    },
-    21: { name: "Orlando Magic", bdlTeamId: 23, wiki: "Orlando_Magic" },
-    22: {
-        name: "Philadelphia 76ers",
-        bdlTeamId: 24,
-        wiki: "Philadelphia_76ers",
-    },
-    23: { name: "Phoenix Suns", bdlTeamId: 25, wiki: "Phoenix_Suns" },
-    24: {
-        name: "Portland Trail Blazers",
-        bdlTeamId: 26,
-        wiki: "Portland_Trail_Blazers",
-    },
-    25: { name: "Sacramento Kings", bdlTeamId: 27, wiki: "Sacramento_Kings" },
-    26: { name: "San Antonio Spurs", bdlTeamId: 28, wiki: "San Antonio_Spurs" },
-    27: { name: "Toronto Raptors", bdlTeamId: 29, wiki: "Toronto_Raptors" },
-    28: { name: "Utah Jazz", bdlTeamId: 30, wiki: "Utah_Jazz" },
-    29: { name: "Washington Wizards", bdlTeamId: 31, wiki: "Washing_Wizards" },
+// ---------- Utilities & team mapping ----------
+const TEAM_BG_BY_NAME = {
+    "Atlanta Hawks":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/atlanta-hawks-logo.png",
+    "Boston Celtics":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/boston-celtics-logo.png",
+    "Brooklyn Nets":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/brooklyn-nets-logo.png",
+    "Charlotte Hornets":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/charlotte-hornets-logo.png",
+    "Chicago Bulls":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/chicago-bulls-logo.png",
+    "Cleveland Cavaliers":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/cleveland-cavaliers-logo.png",
+    "Dallas Mavericks":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/dallas-mavericks-logo.png",
+    "Denver Nuggets":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/denver-nuggets-logo.png",
+    "Detroit Pistons":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/detroit-pistons-logo.png",
+    "Golden State Warriors":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/goldenstate-warriors-logo.png",
+    "Houston Rockets":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/houston-rockets-logo.png",
+    "Indiana Pacers":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/indiana-pacers-logo.png",
+    "Los Angeles Clippers":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/la-clippers-logo.png",
+    "Los Angeles Lakers":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/la-lakers-logo.png",
+    "Memphis Grizzlies":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/memphis-grizzlies-logo.png",
+    "Miami Heat":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/miami-heat-logo.png",
+    "Milwaukee Bucks":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/milwaukee-bucks-logo.png",
+    "Minnesota Timberwolves":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/minnesota-timberwolves-logo.png",
+    "New Orleans Pelicans":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/new-orleans-pelicans-logo.png",
+    "New York Knicks":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/ny-knicks-logo.png",
+    "Oklahoma City Thunder":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/oklahoma-city-thunder-logo.png",
+    "Orlando Magic":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/orlando-magic-logo.png",
+    "Philadelphia 76ers":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/philadelphia-76ers-logo.png",
+    "Phoenix Suns":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/phoenix-suns-logo.png",
+    "Portland Trail Blazers":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/portland-trailblaizers-logo.png",
+    "Sacramento Kings":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/sacramento-kings-logo.png",
+    "San Antonio Spurs":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/san-antonio-spurs-logo.png",
+    "Toronto Raptors":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/toronto-raptors-logo.png",
+    "Utah Jazz":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/utah-jazz-logo.png",
+    "Washington Wizards":"https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/washington-wizards-logo.png"
 };
 
-// Quick helpers
-const $ = (sel, root = document) => root.querySelector(sel);
-const el = (tag, cls) =>
-    Object.assign(document.createElement(tag), { className: cls || "" });
+const TEAM_MAP = {
+    0:{name:"Atlanta Hawks",bdlTeamId:1},   1:{name:"Boston Celtics",bdlTeamId:2},
+    2:{name:"Brooklyn Nets",bdlTeamId:3},   3:{name:"Charlotte Hornets",bdlTeamId:4},
+    4:{name:"Chicago Bulls",bdlTeamId:6},   5:{name:"Cleveland Cavaliers",bdlTeamId:7},
+    6:{name:"Dallas Mavericks",bdlTeamId:8},7:{name:"Denver Nuggets",bdlTeamId:9},
+    8:{name:"Detroit Pistons",bdlTeamId:10},9:{name:"Golden State Warriors",bdlTeamId:11},
+    10:{name:"Houston Rockets",bdlTeamId:12},11:{name:"Indiana Pacers",bdlTeamId:13},
+    12:{name:"Los Angeles Clippers",bdlTeamId:14},13:{name:"Los Angeles Lakers",bdlTeamId:15},
+    14:{name:"Memphis Grizzlies",bdlTeamId:16},15:{name:"Miami Heat",bdlTeamId:17},
+    16:{name:"Milwaukee Bucks",bdlTeamId:18},17:{name:"Minnesota Timberwolves",bdlTeamId:19},
+    18:{name:"New Orleans Pelicans",bdlTeamId:20},19:{name:"New York Knicks",bdlTeamId:21},
+    20:{name:"Oklahoma City Thunder",bdlTeamId:22},21:{name:"Orlando Magic",bdlTeamId:23},
+    22:{name:"Philadelphia 76ers",bdlTeamId:24},23:{name:"Phoenix Suns",bdlTeamId:25},
+    24:{name:"Portland Trail Blazers",bdlTeamId:26},25:{name:"Sacramento Kings",bdlTeamId:27},
+    26:{name:"San Antonio Spurs",bdlTeamId:28},27:{name:"Toronto Raptors",bdlTeamId:29},
+    28:{name:"Utah Jazz",bdlTeamId:30},    29:{name:"Washington Wizards",bdlTeamId:31}
+};
 
-function ensureCardContainers() {
-    // Insert the side card and hover mini-card next to the map
-    const map = document.getElementById("map"); // from landing_page.html
-    if (!map) return;
+const $  = (sel, root=document)=>root.querySelector(sel);
+const el = (tag, cls)=>Object.assign(document.createElement(tag),{className:cls||""});
 
-    // If not present, create them
-    if (!$("#team-card")) {
-        const aside = el("aside");
-        aside.id = "team-card";
-        // Place after map so CSS grid column puts it to the right on desktop
+function ensureCardContainers(){
+    const map = document.getElementById('map');
+    if(!map) return;
+
+    if(!$('#team-card')){
+        const aside = el('aside'); aside.id='team-card';
         map.parentElement.appendChild(aside);
     }
-    if (!$("#team-mini")) {
-        const mini = el("div");
-        mini.id = "team-mini";
-        // Simplemaps renders into a holder inside #map (we'll attach to that holder)
-        // The holder is created by the library as `${div}_holder` where div=mapdata.main_settings.div
-        // Your map uses main_settings.div = "map". :contentReference[oaicite:3]{index=3}
-        const holder = document.getElementById("map_holder") || map;
-        holder.style.position = "relative";
-        holder.appendChild(mini);
+    // Mini info bar sits ABOVE the map (not overlaying it)
+    if(!$('#team-mini')){
+        const mini = el('div'); mini.id='team-mini';
+        map.parentElement.insertBefore(mini, map);
     }
 }
 ensureCardContainers();
 
-// ---------- Fetchers (graceful fallbacks) ----------
-// Free endpoints used at runtime in the browser:
-// 1) Wikipedia Summary API (for a short description).
-async function fetchWikiSummary(team) {
-    try {
-        const res = await fetch(
-            `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(
-                team.wiki
-            )}`
+// ---------- Data (balldontlie only) ----------
+// Season detection + fallback (current → -1 → -2)
+const CURRENT_SEASON = (new Date().getMonth() >= 9)
+    ? new Date().getFullYear()
+    : new Date().getFullYear() - 1;
+const SEASON_CANDIDATES = [CURRENT_SEASON, CURRENT_SEASON - 1, CURRENT_SEASON - 2];
+
+async function fetchJSON(url){
+    const r = await fetch(url, {mode:'cors'});
+    if(!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+    return r.json();
+}
+
+async function fetchTeamInfo(teamId){
+    try{ return await fetchJSON(`https://www.balldontlie.io/api/v1/teams/${teamId}`); }
+    catch{ return null; }
+}
+
+async function withSeasonFallback(fn){
+    for(const season of SEASON_CANDIDATES){
+        try{
+            const out = await fn(season);
+            if(out && out._nonempty === true) return { ...out, _season: season };
+        }catch{ /* try next season */ }
+    }
+    return null;
+}
+
+async function fetchTeamWL(teamId){
+    const res = await withSeasonFallback(async (season)=>{
+        const {data} = await fetchJSON(
+            `https://www.balldontlie.io/api/v1/games?seasons[]=${season}&team_ids[]=${teamId}&per_page=100`
         );
-        if (!res.ok) throw new Error("wiki");
-        const data = await res.json();
-        return data.extract || "";
-    } catch {
-        return ""; // fallback to empty
-    }
-}
-
-// 2) balldontlie (simple, free basketball API). We’ll compute current-season W/L by sampling games.
-const CURRENT_SEASON =
-    new Date().getMonth() >= 9
-        ? new Date().getFullYear()
-        : new Date().getFullYear() - 1;
-// (Season flips around October; this rough cut is fine for the demo)
-
-async function fetchTeamWL(bdlTeamId) {
-    try {
-        // We’ll pull recent games for the season and compute W/L.
-        // API: https://www.balldontlie.io/api/v1/games?seasons[]=YYYY&team_ids[]=ID&per_page=100
-        const url = `https://www.balldontlie.io/api/v1/games?seasons[]=${CURRENT_SEASON}&team_ids[]=${bdlTeamId}&per_page=100`;
-        const res = await fetch(url);
-        if (!res.ok) throw new Error("bdl");
-        const data = await res.json();
-        let wins = 0,
-            losses = 0;
-        for (const g of data.data) {
-            const isHome = g.home_team.id === bdlTeamId;
-            const myScore = isHome ? g.home_team_score : g.visitor_team_score;
-            const oppScore = isHome ? g.visitor_team_score : g.home_team_score;
-            if (myScore > oppScore) wins++;
-            else if (myScore < oppScore) losses++;
+        if(!data || data.length === 0) return {_nonempty:false};
+        let wins=0, losses=0;
+        for(const g of data){
+            const home = g.home_team.id===teamId;
+            const my   = home ? g.home_team_score : g.visitor_team_score;
+            const opp  = home ? g.visitor_team_score : g.home_team_score;
+            if(my>opp) wins++; else if(my<opp) losses++;
         }
-        return { wins, losses, games: data.data.length };
-    } catch {
-        return { wins: null, losses: null, games: null }; // fallback
-    }
+        return {wins, losses, games:data.length, _nonempty:true};
+    });
+    return res || {wins:0, losses:0, games:0};
 }
 
-// 3) Count current roster size (approx) by querying players this season.
-async function fetchRosterCount(bdlTeamId) {
-    try {
-        // paginated; but per_page=100 typically covers active roster
-        const url = `https://www.balldontlie.io/api/v1/players?per_page=100&team_ids[]=${bdlTeamId}`;
-        const res = await fetch(url);
-        if (!res.ok) throw new Error("bdl players");
-        const data = await res.json();
-        return data.data.length || null;
-    } catch {
-        return null;
-    }
+async function fetchRosterCount(teamId){
+    try{
+        const j = await fetchJSON(`https://www.balldontlie.io/api/v1/players?per_page=100&team_ids[]=${teamId}`);
+        return j?.data?.length ?? 0;
+    }catch{ return 0; }
 }
 
-// ---------- Renderers ----------
-function renderMiniCard(idx, pos /* {x, y} from mouse */) {
-    const info = TEAM_MAP[idx];
-    if (!info) return;
-    const mini = $("#team-mini");
-    mini.innerHTML = `
-    <span class="name">${info.name}</span>
-    <div class="row">
-      <span class="pill">Click to open team card</span>
-    </div>
-  `;
-    mini.style.display = "block";
-    // Position near cursor/marker (offset handled by CSS transform)
-    mini.style.left = `${pos.x}px`;
-    mini.style.top = `${pos.y}px`;
+async function fetchTeamTopScorer(teamId){
+    const res = await withSeasonFallback(async (season)=>{
+        const playersData = await fetchJSON(`https://www.balldontlie.io/api/v1/players?per_page=100&team_ids[]=${teamId}`);
+        const ids = (playersData?.data||[]).map(p=>p.id);
+        if(ids.length===0) return {_nonempty:false};
+        const params = ids.map(id=>`player_ids[]=${id}`).join('&');
+        const saData = await fetchJSON(`https://www.balldontlie.io/api/v1/season_averages?season=${season}&${params}`);
+        const byId = new Map((playersData?.data||[]).map(p=>[p.id,p]));
+        let top=null;
+        for(const row of (saData?.data||[])){
+            if(row.pts==null) continue;
+            if(!top || row.pts>top.pts){
+                const pl = byId.get(row.player_id);
+                top = { name: pl?`${pl.first_name} ${pl.last_name}`:`#${row.player_id}`, pts: row.pts };
+            }
+        }
+        if(!top) return {_nonempty:false};
+        return {...top, _nonempty:true};
+    });
+    return res || null;
 }
 
-function hideMiniCard() {
-    const mini = $("#team-mini");
-    if (mini) mini.style.display = "none";
+// ---------- UI ----------
+function renderMiniCard(idx){
+    const info = TEAM_MAP[idx]; if(!info) return;
+    const mini = $('#team-mini');
+    mini.textContent = info.name;
+    mini.style.display='block';
+}
+function hideMiniCard(){ const mini=$('#team-mini'); if(mini) mini.style.display='none'; }
+function winPct(w,l){ if(w==null||l==null) return null; const g=w+l; return g? (w/g)*100 : null; }
+
+function installCloseHandler(){
+    const btn = $('#team-card-close');
+    if(btn) btn.onclick = ()=>{ const c=$('#team-card'); if(c){ c.classList.remove('open'); c.innerHTML=''; } };
 }
 
-function loadingCard(name, logoUrl) {
-    const card = $("#team-card");
-    card.classList.add("open");
+function loadingCard(name, logoUrl){
+    const card=$('#team-card'); card.classList.add('open');
     card.innerHTML = `
-    <div class="team-card__header">
-      <img class="team-card__logo" src="${logoUrl || ""}" alt="${name}">
-      <h3 class="team-card__title">${name}</h3>
-    </div>
-    <div class="team-card__meta">
-      <div class="team-card__pill">Loading live data…</div>
-    </div>
-    <div class="team-card__desc"></div>
-    <div class="team-card__stats"></div>
-    <div class="team-card__actions"></div>
-  `;
+    <div class="team-card__bg" style="background-image:url('${logoUrl||""}')"></div>
+    <div class="team-card__vignette"></div>
+    <div class="team-card__content">
+      <div class="team-card__header">
+        <h3 class="team-card__title">${name}</h3>
+        <button id="team-card-close" class="team-card__close" aria-label="Close">✕</button>
+      </div>
+      <div class="team-card__chips"><span class="chip">Loading…</span></div>
+      <div class="team-card__meta"><div class="team-card__pill">Fetching latest stats</div></div>
+      <div class="team-card__stats">
+        <div class="stat"><div class="label">Wins</div><div class="value">—</div></div>
+        <div class="stat"><div class="label">Losses</div><div class="value">—</div></div>
+        <div class="stat"><div class="label">Win %</div><div class="value">—</div></div>
+      </div>
+      <p class="team-card__desc">Loading team info…</p>
+    </div>`;
+    installCloseHandler();
 }
 
-function fillCard({
-    name,
-    city,
-    wikiUrl,
-    logoUrl,
-    rosterCount,
-    wins,
-    losses,
-    games,
-    description,
-}) {
-    const card = $("#team-card");
-    card.classList.add("open");
+function fillCard({ name, city, logoUrl, rosterCount, wins, losses, games, topScorer, info, wlSeason }){
+    const pct = winPct(wins, losses);
+    const chipsHtml = [
+        info?.conference && info?.division ? `<span class="chip">${info.conference} · ${info.division}</span>` : "",
+        info?.abbreviation ? `<span class="chip">${info.abbreviation}</span>` : "",
+        wlSeason ? `<span class="chip">Season ${wlSeason}-${String(wlSeason+1).slice(-2)}</span>` : ""
+    ].join("");
 
-    card.innerHTML = `
-    <div class="team-card__header">
-      <img class="team-card__logo" src="${logoUrl || ""}" alt="${name}">
-      <h3 class="team-card__title">${name}</h3>
-    </div>
+    const metaHtml = [
+        city && `<div class="team-card__pill">City: ${city}</div>`,
+        Number.isFinite(games) && `<div class="team-card__pill">Games: ${games}</div>`,
+        Number.isFinite(rosterCount) && `<div class="team-card__pill">Roster: ${rosterCount} players</div>`,
+        topScorer && `<div class="team-card__pill">Top Scorer ${wlSeason||CURRENT_SEASON}-${String((wlSeason||CURRENT_SEASON)+1).slice(-2)}: <strong>${topScorer.name}</strong> (${topScorer.pts.toFixed(1)} PPG)</div>`
+    ].filter(Boolean).join("");
 
-    <div class="team-card__meta">
-      ${city ? `<div class="team-card__pill">City: ${city}</div>` : ""}
-      ${
-          games != null
-              ? `<div class="team-card__pill">Games this season: ${games}</div>`
-              : ""
-      }
-      ${
-          rosterCount != null
-              ? `<div class="team-card__pill">Roster: ${rosterCount} players</div>`
-              : ""
-      }
-    </div>
+    const desc = info
+        ? `${info.full_name} play in the ${info.conference}ern Conference (${info.division} Division) and are based in ${info.city}.`
+        : "No team information available.";
 
-    <div class="team-card__stats">
-      <div class="team-card__stat">
-        <div class="label">Wins</div>
-        <div class="value">${wins != null ? wins : "—"}</div>
-      </div>
-      <div class="team-card__stat">
-        <div class="label">Losses</div>
-        <div class="value">${losses != null ? losses : "—"}</div>
-      </div>
-    </div>
-
-    <p class="team-card__desc">${description || "No description available."}</p>
-
-    <div class="team-card__actions">
-      ${
-          wikiUrl
-              ? `<a class="team-card__btn" href="${wikiUrl}" target="_blank" rel="noopener">Visit Wikipedia</a>`
-              : ""
-      }
-    </div>
+    const statsHtml = `
+    <div class="stat"><div class="label">Wins</div><div class="value">${wins ?? "—"}</div></div>
+    <div class="stat"><div class="label">Losses</div><div class="value">${losses ?? "—"}</div></div>
+    <div class="stat"><div class="label">Win %</div><div class="value">${pct!=null?pct.toFixed(1):"—"}</div></div>
   `;
 
-    // On mobile: scroll into view & focus the card
-    if (window.matchMedia("(max-width: 991.98px)").matches) {
-        card.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    const card=$('#team-card'); card.classList.add('open');
+    card.innerHTML = `
+    <div class="team-card__bg" style="background-image:url('${logoUrl||""}')"></div>
+    <div class="team-card__vignette"></div>
+    <div class="team-card__content">
+      <div class="team-card__header">
+        <h3 class="team-card__title">${name}</h3>
+        <button id="team-card-close" class="team-card__close" aria-label="Close">✕</button>
+      </div>
+      <div class="team-card__chips">${chipsHtml}</div>
+      <div class="team-card__meta">${metaHtml}</div>
+      <div class="team-card__stats">${statsHtml}</div>
+      <p class="team-card__desc">${desc}</p>
+    </div>`;
+    if (window.matchMedia("(max-width: 991.98px)").matches) card.scrollIntoView({behavior:"smooth",block:"start"});
+    installCloseHandler();
 }
 
 // ---------- Simplemaps hooks ----------
-/*
-  Your Simplemaps bundle exposes hook slots like:
-  simplemaps_usmap.hooks.over_location / out_location / click_location
-  (See the `hooks` object in usmap.js; it registers plugin hooks for *_location.) :contentReference[oaicite:4]{index=4} :contentReference[oaicite:5]{index=5}
-*/
-(function attachMapHooks() {
-    if (!window.simplemaps_usmap || !simplemaps_usmap.hooks) {
-        // If map isn’t initialized yet, retry once DOM is ready
-        document.addEventListener("DOMContentLoaded", attachMapHooks, {
-            once: true,
-        });
+(function attachMapHooks(){
+    if(!window.simplemaps_usmap || !simplemaps_usmap.hooks){
+        document.addEventListener('DOMContentLoaded', attachMapHooks, {once:true});
         return;
     }
 
-    // Hover: show mini-card near the cursor
-    simplemaps_usmap.hooks.over_location = function (id, data, ev) {
-        // The map logic renders inside a holder (absolute coords available). We’ll read mouse offsets if present.
-        const pos = {
-            x: ev?.clientX ? ev.clientX : 0,
-            y: ev?.clientY ? ev.clientY : 0,
-        };
-        // We’ll fallback to center of the holder if no event.
-        const holder = document.getElementById("map_holder");
-        if (holder && (!pos.x || !pos.y)) {
-            const rect = holder.getBoundingClientRect();
-            pos.x = rect.width / 2;
-            pos.y = rect.height / 2;
-        }
-        renderMiniCard(id, pos);
-    };
+    simplemaps_usmap.hooks.over_location = function(id){ renderMiniCard(id); };
+    simplemaps_usmap.hooks.out_location  = function(){ hideMiniCard(); };
 
-    // Leave: hide mini-card
-    simplemaps_usmap.hooks.out_location = function (id) {
-        hideMiniCard();
-    };
-
-    // Click: open the side card, fetch live data
-    simplemaps_usmap.hooks.click_location = async function (id) {
+    simplemaps_usmap.hooks.click_location = async function(id){
         hideMiniCard();
 
-        // Pull logo + city/team text from your mapdata locations.
-        // Your map loads locations (logos & descriptions) via mapdata.js. :contentReference[oaicite:6]{index=6}
-        const loc = (window.simplemaps_usmap_mapdata || {}).locations?.[
-            String(id)
-        ];
-        const guessLogo = loc?.image_url?.match(/src=([^ >]+)/)?.[1] || "";
-        const guessCity = loc?.name || "";
-        const guessTeamName =
-            TEAM_MAP[id]?.name || loc?.description || guessCity;
+        const loc = (window.simplemaps_usmap_mapdata||{}).locations?.[String(id)];
+        const bgFromMap = loc?.image_url || "";
+        const bgFromList = TEAM_BG_BY_NAME[loc?.description] || TEAM_BG_BY_NAME[loc?.name];
+        const logoUrl = bgFromList || bgFromMap || "";
 
-        loadingCard(guessTeamName, guessLogo);
+        const teamMeta = TEAM_MAP[id] || {};
+        const teamId   = teamMeta.bdlTeamId;
+        const teamName = teamMeta.name || loc?.description || loc?.name || "Team";
 
-        // Live data
-        const meta = TEAM_MAP[id] || {};
-        const [desc, wl, roster] = await Promise.all([
-            fetchWikiSummary(meta),
-            meta.bdlTeamId
-                ? fetchTeamWL(meta.bdlTeamId)
-                : Promise.resolve({ wins: null, losses: null, games: null }),
-            meta.bdlTeamId
-                ? fetchRosterCount(meta.bdlTeamId)
-                : Promise.resolve(null),
+        loadingCard(teamName, logoUrl);
+
+        const [info, wl, roster, topScorer] = await Promise.all([
+            fetchTeamInfo(teamId),
+            fetchTeamWL(teamId),
+            fetchRosterCount(teamId),
+            fetchTeamTopScorer(teamId)
         ]);
 
-        const wikiUrl = meta.wiki
-            ? `https://en.wikipedia.org/wiki/${meta.wiki}`
-            : null;
-
         fillCard({
-            name: guessTeamName,
-            city: guessCity,
-            wikiUrl,
-            logoUrl: guessLogo,
+            name: teamName,
+            city: info?.city || (loc?.name||""),
+            logoUrl,
             rosterCount: roster,
-            wins: wl.wins,
-            losses: wl.losses,
-            games: wl.games,
-            description: desc,
+            wins: wl.wins, losses: wl.losses, games: wl.games,
+            topScorer,
+            info,
+            wlSeason: wl._season || null
         });
     };
 })();
@@ -384,13 +310,13 @@ const urlAdd = "https://api.balldontlie.io/v1";
 // Function added to get Teams stats
 async function getTeams() {
     const res = await fetch(`${urlAdd}/teams`, {
-        headers: { Authorization: `Bearer ${apiKey}` },
+        headers: {Authorization: `Bearer ${apiKey}`},
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return res.json();
 }
 
-async function getGames({ start_date, end_date, teamId = null }) {
+async function getGames({start_date, end_date, teamId = null}) {
     // This part builds the complete API url address, encodeURIComponent ensures data is safely encoded for use in url
     let url = `${urlAdd}/games?start_date=${encodeURIComponent(
         start_date
@@ -403,7 +329,7 @@ async function getGames({ start_date, end_date, teamId = null }) {
 
     // Sends an HTTP GET request to the API, await pauses execution until fetch request completes
     const res = await fetch(url, {
-        headers: { Authorization: `Bearer ${apiKey}` },
+        headers: {Authorization: `Bearer ${apiKey}`},
     });
     // Conditional statement to check if HTTP response is not OK ie 404 and returns error code if there is one
     if (!res.ok) throw new Error(`Balldontlie HTTP ${res.status}`);

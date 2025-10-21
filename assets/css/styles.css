@@ -7,6 +7,7 @@ p {
 .text-center {
     text-align: center;
 }
+
 /* Background video wrapper (place a <div class="bg-video"> with a <video> inside in your HTML) */
 .bg-video {
     position: fixed;
@@ -52,16 +53,146 @@ footer {
     --secondary-color: #aa9581; /* light brown */
     --highlight-color: #416a8e; /* blue */
     --highlight-color-light: #7a9fc2; /* light blue */
+    --nba-blue: #17408b;
+}
+/* --- Team Card Layout --- */
+.header .section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+@media (min-width: 992px) {
+    /* desktop: card opens to the right */
+    .header .section {
+        grid-template-columns: 1fr min(380px, 35vw);
+    }
+}
 
+#team-card {
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    padding: 1rem;
+    display: none; /* hidden until a team is clicked */
+    align-self: start;
+    max-height: 80vh;
+    overflow: auto;
+}
 
+#team-card.open {
+    display: block;
+}
+
+.team-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: "Fugaz One", system-ui, sans-serif;
+}
+.team-card__logo {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+.team-card__title {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.team-card__meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin: 0.75rem 0 0;
+}
+.team-card__pill {
+    background: #f6f7fb;
+    border-radius: 10px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+}
+.team-card__stats {
+    margin-top: 0.75rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+.team-card__stat {
+    background: #0b1b37;
+    color: #fff;
+    border-radius: 12px;
+    padding: 0.75rem;
+    text-align: center;
+}
+.team-card__stat .label {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+.team-card__stat .value {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.team-card__desc {
+    margin: 0.75rem 0;
+    line-height: 1.45;
+}
+
+.team-card__actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+.team-card__btn {
+    border: 1px solid #e3e6ef;
+    border-radius: 10px;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+}
+.team-card__btn:hover {
+    background: #f6f7fb;
+}
+
+/* --- Mini hover card that follows the cursor --- */
+#team-mini {
+    position: absolute;
+    z-index: 10000;
+    pointer-events: none;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 0.6rem 0.7rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translate(8px, 8px);
+    display: none;
+    min-width: 200px;
+    max-width: 280px;
+    font: 12px/1.5 Verdana, Arial, Helvetica, sans-serif; /* matches lib default */
+}
+#team-mini .name {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+#team-mini .row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+#team-mini .pill {
+    background: #f6f7fb;
+    border-radius: 8px;
+    padding: 0.2rem 0.5rem;
 }
 
 /* Placeholder styles */
 
 #map {
-    width: 60%;
-
+    width: 100%;
 }
+
 .navbar {
     min-height: 80px;
     background-color: var(--primary-color);
@@ -76,6 +207,15 @@ logo {
     padding: 5px;
 }
 
+h2 {
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+label {
+    color: white;
+}
+
 .maparea {
     font-family: var(--secondary-font);
     text-align: center;
@@ -84,7 +224,50 @@ logo {
     background-color: rgba(158, 51, 94, 0.63);
     position: relative;
 }
+
 .selection {
     padding-top: 10px;
     border: #050505 1px solid;
+}
+
+/* Games Calender */
+#games-calendar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #17408b;
+    border-radius: 10px;
+}
+
+.game {
+    background: white;
+    border-radius: 10px;
+    border-color: black;
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 400px;
+    line-height: 2;
+    text-align: center;
+}
+
+.game:hover {
+    background-color: grey;
+    color: white;
+}
+
+/* Enter button */
+
+#enter-btn {
+    size: large;
+    background-color: var(--highlight-color);
+}
+/* Media queries */
+@media (max-width: 600px) {
+    .game {
+        width: 100%;
+    }
 }

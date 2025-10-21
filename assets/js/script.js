@@ -32,6 +32,40 @@
 // assets/js/script.js
 
 // ---------- Utilities & data mapping ----------
+// Background logos for cards (exact team name -> image URL)
+const TEAM_BG_BY_NAME = {
+    "Atlanta Hawks": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/atlanta-hawks-logo.png",
+    "Boston Celtics": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/boston-celtics-logo.png",
+    "Brooklyn Nets": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/brooklyn-nets-logo.png",
+    "Charlotte Hornets": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/charlotte-hornets-logo.png",
+    "Chicago Bulls": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/chicago-bulls-logo.png",
+    "Cleveland Cavaliers": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/cleveland-cavaliers-logo.png",
+    "Dallas Mavericks": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/dallas-mavericks-logo.png",
+    "Denver Nuggets": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/denver-nuggets-logo.png",
+    "Detroit Pistons": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/detroit-pistons-logo.png",
+    "Golden State Warriors": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/goldenstate-warriors-logo.png",
+    "Houston Rockets": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/houston-rockets-logo.png",
+    "Indiana Pacers": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/indiana-pacers-logo.png",
+    "Los Angeles Clippers": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/la-clippers-logo.png",
+    "Los Angeles Lakers": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/la-lakers-logo.png",
+    "Memphis Grizzlies": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/memphis-grizzlies-logo.png",
+    "Miami Heat": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/miami-heat-logo.png",
+    "Milwaukee Bucks": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/milwaukee-bucks-logo.png",
+    "Minnesota Timberwolves": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/minnesota-timberwolves-logo.png",
+    "New Orleans Pelicans": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/new-orleans-pelicans-logo.png",
+    "New York Knicks": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/ny-knicks-logo.png",
+    "Oklahoma City Thunder": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/oklahoma-city-thunder-logo.png",
+    "Orlando Magic": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/orlando-magic-logo.png",
+    "Philadelphia 76ers": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/philadelphia-76ers-logo.png",
+    "Phoenix Suns": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/phoenix-suns-logo.png",
+    "Portland Trail Blazers": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/portland-trailblaizers-logo.png",
+    "Sacramento Kings": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/sacramento-kings-logo.png",
+    "San Antonio Spurs": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/san-antonio-spurs-logo.png",
+    "Toronto Raptors": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/toronto-raptors-logo.png",
+    "Utah Jazz": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/utah-jazz-logo.png",
+    "Washington Wizards": "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/washington-wizards-logo.png"
+};
+
 const TEAM_MAP = {
     // Map Simplemaps "locations" indexes (mapdata.js) to metadata we need
     // (id from balldontlie, wiki slug, and human team name)
@@ -172,17 +206,23 @@ function hideMiniCard() {
 function loadingCard(name, logoUrl) {
     const card = $('#team-card');
     card.classList.add('open');
+
     card.innerHTML = `
-    <div class="team-card__header">
-      <img class="team-card__logo" src="${logoUrl || ''}" alt="${name}">
-      <h3 class="team-card__title">${name}</h3>
+    <div class="team-card__bg" style="background-image:url('${logoUrl || ""}')"></div>
+    <div class="team-card__vignette"></div>
+
+    <div class="team-card__content">
+      <div class="team-card__header">
+        <!-- You can keep/remove the small logo; now it’s redundant, so we remove it -->
+        <h3 class="team-card__title">${name}</h3>
+      </div>
+      <div class="team-card__meta">
+        <div class="team-card__pill">Loading live data…</div>
+      </div>
+      <div class="team-card__desc"></div>
+      <div class="team-card__stats"></div>
+      <div class="team-card__actions"></div>
     </div>
-    <div class="team-card__meta">
-      <div class="team-card__pill">Loading live data…</div>
-    </div>
-    <div class="team-card__desc"></div>
-    <div class="team-card__stats"></div>
-    <div class="team-card__actions"></div>
   `;
 }
 
@@ -191,36 +231,39 @@ function fillCard({ name, city, wikiUrl, logoUrl, rosterCount, wins, losses, gam
     card.classList.add('open');
 
     card.innerHTML = `
-    <div class="team-card__header">
-      <img class="team-card__logo" src="${logoUrl || ''}" alt="${name}">
-      <h3 class="team-card__title">${name}</h3>
-    </div>
+    <div class="team-card__bg" style="background-image:url('${logoUrl || ""}')"></div>
+    <div class="team-card__vignette"></div>
 
-    <div class="team-card__meta">
-      ${city ? `<div class="team-card__pill">City: ${city}</div>` : ""}
-      ${games != null ? `<div class="team-card__pill">Games this season: ${games}</div>` : ""}
-      ${rosterCount != null ? `<div class="team-card__pill">Roster: ${rosterCount} players</div>` : ""}
-    </div>
-
-    <div class="team-card__stats">
-      <div class="team-card__stat">
-        <div class="label">Wins</div>
-        <div class="value">${wins != null ? wins : "—"}</div>
+    <div class="team-card__content">
+      <div class="team-card__header">
+        <h3 class="team-card__title">${name}</h3>
       </div>
-      <div class="team-card__stat">
-        <div class="label">Losses</div>
-        <div class="value">${losses != null ? losses : "—"}</div>
+
+      <div class="team-card__meta">
+        ${city ? `<div class="team-card__pill">City: ${city}</div>` : ""}
+        ${games != null ? `<div class="team-card__pill">Games this season: ${games}</div>` : ""}
+        ${rosterCount != null ? `<div class="team-card__pill">Roster: ${rosterCount} players</div>` : ""}
       </div>
-    </div>
 
-    <p class="team-card__desc">${description || "No description available."}</p>
+      <div class="team-card__stats">
+        <div class="team-card__stat">
+          <div class="label">Wins</div>
+          <div class="value">${wins != null ? wins : "—"}</div>
+        </div>
+        <div class="team-card__stat">
+          <div class="label">Losses</div>
+          <div class="value">${losses != null ? losses : "—"}</div>
+        </div>
+      </div>
 
-    <div class="team-card__actions">
-      ${wikiUrl ? `<a class="team-card__btn" href="${wikiUrl}" target="_blank" rel="noopener">Visit Wikipedia</a>` : ""}
+      <p class="team-card__desc">${description || "No description available."}</p>
+
+      <div class="team-card__actions">
+        ${wikiUrl ? `<a class="team-card__btn" href="${wikiUrl}" target="_blank" rel="noopener">Visit Wikipedia</a>` : ""}
+      </div>
     </div>
   `;
 
-    // On mobile: scroll into view & focus the card
     if (window.matchMedia("(max-width: 991.98px)").matches) {
         card.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -264,7 +307,9 @@ function fillCard({ name, city, wikiUrl, logoUrl, rosterCount, wins, losses, gam
         // Pull logo + city/team text from your mapdata locations.
         // Your map loads locations (logos & descriptions) via mapdata.js. :contentReference[oaicite:6]{index=6}
         const loc = (window.simplemaps_usmap_mapdata || {}).locations?.[String(id)];
-        const guessLogo = loc?.image_url?.match(/src=([^ >]+)/)?.[1] || "";
+        const bgFromMap = loc?.image_url || "";
+        const bgFromList = TEAM_BG_BY_NAME[loc?.description] || TEAM_BG_BY_NAME[loc?.name];
+        const guessLogo = bgFromList || bgFromMap || "";
         const guessCity = loc?.name || "";
         const guessTeamName = TEAM_MAP[id]?.name || loc?.description || guessCity;
 

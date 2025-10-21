@@ -53,7 +53,7 @@ footer {
     --secondary-color: #aa9581; /* light brown */
     --highlight-color: #416a8e; /* blue */
     --highlight-color-light: #7a9fc2; /* light blue */
-    --nba-blue: #17408b;
+    --nba-blue: #17408b; /* Dark Cornflower Blue */
 }
 /* --- Team Card Layout --- */
 .header .section {
@@ -216,6 +216,10 @@ label {
     color: white;
 }
 
+a {
+    text-decoration: none;
+}
+
 .maparea {
     font-family: var(--secondary-font);
     text-align: center;
@@ -258,6 +262,11 @@ label {
     background-color: grey;
     color: white;
 }
+
+#ticket-link {
+    color: white;
+}
+/* Enter button */
 
 /* Media queries */
 @media (max-width: 600px) {

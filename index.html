@@ -26,26 +26,28 @@
                 var container = document.querySelector('.bg-video');
                 var video = container && container.querySelector('video');
                 if (video) {
-                    try {
-                        video.currentTime = 0;
-                    } catch (e) {
-                    }
-                    var p = video.play();
-                    if (p && p.catch) p.catch(function () {
-                    });
+                    video.removeAttribute('autoplay');
+                    video.pause();
                 }
-                btn.style.display = 'none';
-                // change the URL below to the page you want to go to
-                setTimeout(function () {
-                    window.location.href = 'landing_page.html';
-                }, 5000);
+                var btn = document.getElementById('enter-btn');
+                if (!btn) return;
+                btn.addEventListener('click', function () {
+                    if (video) {
+                        try { video.currentTime = 0; } catch (e) { }
+                        var p = video.play();
+                        if (p && p.catch) p.catch(function () { });
+                    }
+                    btn.style.display = 'none';
+                    // change the URL below to the page you want to go to
+                    setTimeout(function () { window.location.href = 'landing_page.html'; }, 5000);
+                });
             });
         </script>
         <button id="enter-btn" aria-label="Enter site" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-                   z-index:10; padding:12px 24px; font-size:28px; background:none; border:none; 
-                 cursor: pointer; opacity: 80%;">
-            <img src="../assets/images/enter-image-2.png" alt="Enter site"
-                style="width:200px; height:auto; transition: transform 0.3s;">
+                   z-index:10; padding:12px 24px; font-size:18px; background:none; border:none;
+                 cursor:pointer;">
+            <img src="../assets/images/enter-3.png" alt="enter site"
+                style="width:300px; height:auto; transition: transform 0.3s;">
         </button>
         <script>
             (function () {
@@ -60,7 +62,6 @@
             Your browser does not support the video tag.
         </video>
     </div>
-    >>>>>>> main
 </body>
 
 </html>

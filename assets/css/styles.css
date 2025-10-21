@@ -63,18 +63,6 @@ footer {
     overflow: hidden;          /* clip the background logo inside the card */
 }
 
-/* Background logo layer (doesn't affect layout) */
-.team-card__bg {
-    position: absolute;
-    inset: 0;                  /* full card */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;  /* keep full logo visible, no stretching */
-    opacity: 0.20;             /* subtle; adjust 0.08–0.18 as you like */
-    filter: saturate(90%) contrast(110%);
-    pointer-events: none;      /* ignore mouse */
-    z-index: 0;
-}
 
 /* Optional readable overlay for text contrast (subtle vignette) */
 .team-card__vignette {
@@ -96,16 +84,14 @@ footer {
     grid-template-columns: 1fr;
     gap: 1rem;
 }
-<<<<<<< HEAD
-=======
+ HEAD
 @media (min-width: 992px) {
     /* desktop: card opens to the right */
     .header .section {
         grid-template-columns: 1fr min(380px, 35vw);
     }
 }
->>>>>>> main
-
+>>>>>>> main,
 #team-card {
     border-radius: 16px;
     background: #fff;
@@ -245,8 +231,8 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    opacity: .08;              /* subtler background */
-    filter: saturate(0) contrast(110%);
+    opacity: .28;              /* subtler background */
+    filter: saturate(80%) contrast(110%);
     pointer-events: none;
     z-index: 0;
 }
@@ -313,13 +299,6 @@ footer {
     background-color: var(--primary-color);
     font-family: var(--primary-font);
     font-size: 48px;
-}
-
-logo {
-    position: relative;
-    max-height: 1rem;
-    max-width: 1rem;
-    padding: 5px;
 }
 
 h2 {

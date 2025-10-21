@@ -61,12 +61,15 @@ footer {
     grid-template-columns: 1fr;
     gap: 1rem;
 }
+<<<<<<< HEAD
+=======
 @media (min-width: 992px) {
     /* desktop: card opens to the right */
     .header .section {
         grid-template-columns: 1fr min(380px, 35vw);
     }
 }
+>>>>>>> main
 
 #team-card {
     border-radius: 16px;
@@ -268,9 +271,65 @@ a {
 }
 /* Enter button */
 
+/* Footer Styles */
+
+footer {
+    background-color: #b82d2d;
+    width: 100%;
+    padding: 10px 0;
+}
+
+footer h5 {
+    color: var(--nba-blue);
+    font-family: "Major Mono Display", monospace;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 10px;
+}
+
+.social a {
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    gap: 10px;
+}
+
+.social a i {
+    font-size: 1.5rem;
+    display: flex;
+    transition: all 0.3s ease;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Enhanced hover effects */
+.social a:hover {
+    transform: translateY(-3px);
+}
+
+/** Important tag used due to inline styles in HTML required for Social Logo color change **/
+.social a:hover i {
+    color: var(--nba-blue) !important;
+    transform: scale(2);
+}
+
 /* Media queries */
 @media (max-width: 600px) {
     .game {
         width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    /* desktop: card opens to the right */
+    .header .section {
+        grid-template-columns: 1fr min(380px, 35vw);
     }
 }

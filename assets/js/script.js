@@ -1,4 +1,5 @@
 // Code to add audio functionality
+
 // DOM variables
 // const fetchButton = document.querySelector("button");
 // const paragraph = document.querySelector("p");
@@ -690,6 +691,7 @@ async function displayGames(teamId = null) {
         data.data.forEach((game) => {
             const gameItem = document.createElement("div");
             gameItem.classList.add("game"); // match CSS style
+            gameItem.classList.add("game-link"); // create class for additional styling
 
             // Converts the game's date string to a human-readable format using local time settings
             const gameDate = new Date(game.date).toLocaleDateString("en-US", {
@@ -730,7 +732,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const selectedTeamId = teamsList.value;
 
     if (selectedTeamId === "") {
-        gamesList.innerHTML = "<p>No team selected. No games to display.</p>";
+        gamesList.innerHTML = "";
         return;
     }
 

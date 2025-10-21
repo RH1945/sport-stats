@@ -53,6 +53,7 @@ footer {
     --secondary-color: #aa9581; /* light brown */
     --highlight-color: #416a8e; /* blue */
     --highlight-color-light: #7a9fc2; /* light blue */
+    --nba-blue: #17408b;
 }
 /* --- Team Card Layout --- */
 .header .section {
@@ -132,72 +133,11 @@ footer {
 #team-mini .row { display: flex; gap: .5rem; flex-wrap: wrap; }
 #team-mini .pill { background:#f6f7fb; border-radius: 8px; padding:.2rem .5rem; }
 
-/* map styles */
-
-.tt_sm {
-    border-radius: 5px;
-    box-shadow: 3px 3px 4px rgba(0, 0, 0, .5);
-    z-index: 1000000;
-    background-color: white;
-    padding: 7px;
-    opacity: 0.9;
-    font: 12px/1.5 Verdana, Arial, Helvetica, sans-serif;
-    color: black;
-}
-
-.tt_name_sm {
-    float: left;
-    font-weight: bold
-}
-
-.xmark_sm {
-    float: right;
-    margin-left: 5px;
-    cursor: pointer;
-    line-height: 0px;
-}
-
-.tt_custom_sm {
-}
-
-.tt_mobile_sm {
-    margin-top: 5px;
-}
-
-.btn_simplemaps {
-    color: black;
-    text-decoration: none;
-    background: #ffffff;
-    display: inline-block;
-    padding: 5px 5px;
-    margin: 0;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    line-height: 1.43;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border: 1px solid;
-    border-radius: 4px;
-}
-
-.btn_simplemaps:hover {
-    text-decoration: underline;
-}
 
 /* Placeholder styles */
 
 #map {
-    width: 60%;
+    width: 100%;
 }
 
 .navbar {
@@ -212,6 +152,15 @@ logo {
     max-height: 1rem;
     max-width: 1rem;
     padding: 5px;
+}
+
+h2 {
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+label {
+    color: white;
 }
 
 .maparea {
@@ -233,29 +182,28 @@ logo {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
     gap: 1.5rem;
     max-width: 800px;
     margin: 2rem auto;
     padding: 1rem;
-    background: lightblue;
+    background: #17408b;
     border-radius: 10px;
 }
 
 .game {
     background: white;
     border-radius: 10px;
-    padding: 1rem 1.2rem;
-    width: 280px;
-    line-height: 1.6;
-}
-
-.game:last-child {
-    border-bottom: none;
+    border-color: black;
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 400px;
+    line-height: 2;
+    text-align: center;
 }
 
 .game:hover {
     background-color: grey;
+    color: white;
 }
 
 /* Media queries */

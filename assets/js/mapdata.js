@@ -1,7 +1,7 @@
 var simplemaps_usmap_mapdata={
     main_settings: {
         //General settings
-        width: "responsive", //'700' or 'responsive'
+        width: "500", //'700' or 'responsive'
         background_color: "#FFFFFF",
         background_transparent: "yes",
         border_color: "#453535",
@@ -14,7 +14,7 @@ var simplemaps_usmap_mapdata={
         state_url: "",
         border_size: "3",
         all_states_inactive: "no",
-        all_states_zoomable: "yes",
+        all_states_zoomable: "no",
 
         //Location defaults
         location_description: "Add location markers using latitude and longitude!",
@@ -22,9 +22,7 @@ var simplemaps_usmap_mapdata={
         location_opacity: 0.8,
         location_hover_opacity: 1,
         location_url: "",
-        location_size: 25,
-        location_type: "square",
-        location_image_source: "frog.png",
+        location_size: "24",
         location_border_color: "#FFFFFF",
         location_border: 2,
         location_hover_border: 2.5,
@@ -61,12 +59,13 @@ var simplemaps_usmap_mapdata={
         div: "map",
         auto_load: "yes",
         url_new_tab: "yes",
-        images_directory: "assets/images/hackathon-basketball",
+        images_directory: "/static/lib/simplemaps/map_images/",
         fade_time: 0.1,
         import_labels: "no",
         link_text: "View Website",
         state_image_url: "",
         state_image_position: "",
+        location_type: "",
         location_image_url: ""
     },
     state_specific: {
@@ -247,244 +246,244 @@ var simplemaps_usmap_mapdata={
     },
     locations: {
         "0": {
-            image_url: "atlanta-hawks-logo.png",
             lat: 33.748,
             lng: -84.391,
             name: "Atlanta",
-            color: "#C8102E",
-            description: "Atlanta Hawks <img alt=hawkslogo src=assets/images/hackathon-basketball/atlanta-hawks-logo.png style='width: 65px;' / >"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/atlanta-hawks-logo.png",
+            description: "Atlanta Hawks"
         },
         "1": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 42.359,
             lng: -71.057,
             name: "Boston",
-            color: "#007A33",
-            description: "Boston Celtics"
+            type: "image",
+            description: "Boston Celtics",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/boston-celtics-logo.png"
         },
         "2": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 40.692,
             lng: -73.99,
             name: "Brooklyn",
             description: "Brooklyn Nets",
-            color: "#000000"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/brooklyn-nets-logo.png"
         },
         "3": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 35.223,
             lng: -80.838,
             name: "Charlotte",
             description: "Charlotte Hornets",
-            color: "#1d1160"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/charlotte-hornets-logo.png"
         },
         "4": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 41.884,
             lng: -87.632,
             name: "Chicago",
             description: "Chicago Bulls",
-            color: "#CE1141"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/chicago-bulls-logo.png"
         },
         "5": {
-            image_src: "assets/images/hackathon-basketball/atlanta-hawks-logo.png",
             lat: 41.505,
             lng: -81.691,
             name: "Cleveland",
             description: "Cleveland Cavaliers",
-            color: "#041E42"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/cleveland-cavaliers-logo.png"
         },
         "6": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 32.778,
             lng: -96.795,
             name: "Dallas",
             description: "Dallas Mavericks",
-            color: "#00538C"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/dallas-mavericks-logo.png"
         },
         "7": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 39.74,
             lng: -104.992,
             name: "Denver",
             description: "Denver Nuggets",
-            color: "#FEC524"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/denver-nuggets-logo.png"
         },
         "8": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 42.332,
             lng: -83.048,
             name: "Detroit",
             description: "Detroit Pistons",
-            color: "#C8102E"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/detroit-pistons-logo.png"
         },
         "9": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 37.777,
             lng: -122.42,
             name: "San Francisco",
             description: "Golden State Warriors",
-            color: "#1D428A"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/goldenstate-warriors-logo.png"
         },
         "10": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 29.761,
             lng: -95.37,
             name: "Houston",
             description: "Houston Rockets",
-            color: "#CE1141"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/houston-rockets-logo.png"
         },
         "11": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 39.767,
             lng: -86.15,
             name: "Indianapolis",
             description: "Indiana Pacers",
-            color: "#002D62"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/indiana-pacers-logo.png"
         },
         "12": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 33.962,
             lng: -118.357,
             name: "Inglewood",
             description: "Los Angeles Clippers",
-            color: "#c8102E"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/la-clippers-logo.png"
         },
         "13": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 34.054,
             lng: -118.245,
             name: "Los Angeles",
             description: "Los Angeles Lakers",
-            color: "#552583"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/la-lakers-logo.png"
         },
         "14": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 35.15,
             lng: -90.049,
             name: "Memphis",
             description: "Memphis Grizzlies",
-            color: "#5D76A9"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/memphis-grizzlies-logo.png"
         },
         "15": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 25.775,
             lng: -80.198,
             name: "Miami",
             description: "Miami Heat",
-            color: "#98002E"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/miami-heat-logo.png"
         },
         "16": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 43.042,
             lng: -87.907,
             name: "Milwaukee",
             description: "Milwaukee Bucks",
-            color: "#00471B"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/milwaukee-bucks-logo.png"
         },
         "17": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 44.979,
             lng: -93.265,
             name: "Minneapolis",
             description: "Minnesota Timberwolves",
-            color: "#0C2340"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/minnesota-timberwolves-logo.png"
         },
         "18": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 29.954,
             lng: -90.078,
             name: "New Orleans",
             description: "New Orleans Pelicans",
-            color: "#0C2340"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/new-orleans-pelicans-logo.png"
         },
         "19": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 40.715,
             lng: -74.007,
             name: "New York",
             description: "New York Knicks",
-            color: "#006BB6"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/ny-knicks-logo.png"
         },
         "20": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 35.472,
             lng: -97.521,
             name: "Oklahoma City",
             description: "Oklahoma City Thunder",
-            color: "#007ac1"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/oklahoma-city-thunder-logo.png"
         },
         "21": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 28.538,
             lng: -81.377,
             name: "Orlando",
             description: "Orlando Magic",
-            color: "#0077c0"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/orlando-magic-logo.png"
         },
         "22": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 39.952,
             lng: -75.162,
             name: "Philadelphia",
             description: "Philadelphia 76ers",
-            color: "#006bb6"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/philadelphia-76ers-logo.png"
         },
         "23": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 33.448,
             lng: -112.076,
             name: "Phoenix",
             description: "Phoenix Suns",
-            color: "#1d1160"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/phoenix-suns-logo.png"
         },
         "24": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 45.512,
             lng: -122.676,
             name: "Portland",
             description: "Portland Trail Blazers",
-            color: "#E03A3E"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/portland-trailblaizers-logo.png"
         },
         "25": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 38.579,
             lng: -121.491,
             name: "Sacramento",
             description: "Sacramento Kings",
-            color: "#5a2d81"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/sacramento-kings-logo.png"
         },
         "26": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 29.425,
             lng: -98.495,
             name: "San Antonio",
             description: "San Antonio Spurs",
-            color: "#c4ced4"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/san-antonio-spurs-logo.png"
         },
         "27": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 40.461,
             lng: -80.606,
             name: "Toronto",
             description: "Toronto Raptors",
-            color: "#ce1141"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/toronto-raptors-logo.png"
         },
         "28": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 40.76,
             lng: -111.888,
             name: "Salt Lake City",
             description: "Utah Jazz",
-            color: "#002B5C"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/utah-jazz-logo.png"
         },
         "29": {
-            image_url: "assets/images/hackathon-basketball",
             lat: 38.89,
             lng: -77.032,
             name: "Washington",
             description: "Washington Wizards",
-            color: "#002B5C"
+            type: "image",
+            image_url: "https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/hackathon-basketball/washington-wizards-logo.png"
         }
     },
     labels: {

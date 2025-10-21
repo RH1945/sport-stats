@@ -1,4 +1,5 @@
 // Code to add audio functionality
+
 // DOM variables
 // const fetchButton = document.querySelector("button");
 // const paragraph = document.querySelector("p");
@@ -653,12 +654,6 @@ async function populateTeams() {
     try {
         const data = await getTeams();
 
-        // Default option
-        // const allOption = document.createElement("option");
-        // allOption.value = "";
-        // allOption.textContent = "All Teams";
-        // teamsList.appendChild(allOption);
-
         const noTeamOption = document.createElement("option");
         noTeamOption.value = "";
         noTeamOption.textContent = "No Team selected";
@@ -696,6 +691,7 @@ async function displayGames(teamId = null) {
         data.data.forEach((game) => {
             const gameItem = document.createElement("div");
             gameItem.classList.add("game"); // match CSS style
+            gameItem.classList.add("game-link"); // create class for additional styling
 
             // Converts the game's date string to a human-readable format using local time settings
             const gameDate = new Date(game.date).toLocaleDateString("en-US", {
@@ -709,7 +705,7 @@ async function displayGames(teamId = null) {
             gameItem.innerHTML = `
                 <strong>${game.home_team.full_name}</strong> vs <strong>${game.visitor_team.full_name}</strong><br>
                 ${gameDate} <br>
-                Status: ${game.status}
+    
             `;
             // Adds in the newly created game <div> to the gamesList container in the DOM
             gamesList.appendChild(gameItem);
@@ -736,7 +732,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const selectedTeamId = teamsList.value;
 
     if (selectedTeamId === "") {
-        gamesList.innerHTML = "<p>No team selected. No games to display.</p>";
+        gamesList.innerHTML = "";
         return;
     }
 

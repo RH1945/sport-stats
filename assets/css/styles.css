@@ -52,7 +52,7 @@ footer {
     --secondary-color: #aa9581; /* light brown */
     --highlight-color: #416a8e; /* blue */
     --highlight-color-light: #7a9fc2; /* light blue */
-    --nba-blue: #17408b;
+    --nba-blue: #17408b; /* Dark Cornflower Blue */
 }
 
 /* Placeholder styles */
@@ -81,6 +81,10 @@ h2 {
 
 label {
     color: white;
+}
+
+a {
+    text-decoration: none;
 }
 
 .maparea {
@@ -122,6 +126,10 @@ label {
 
 .game:hover {
     background-color: grey;
+    color: white;
+}
+
+#ticket-link {
     color: white;
 }
 

@@ -3,11 +3,13 @@
 
 <head>
 </head>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Description-->
-    <meta name="description" content="A responsive, searchable database of NBA players showcasing an API implementation. Hackathon Code Institute/Oct 2025.">
+    <meta name="description"
+        content="A responsive, searchable database of NBA players showcasing an API implementation. Hackathon Code Institute/Oct 2025.">
     <!-- icons -->
     <!--    <a href="https://www.flaticon.com/free-icons/nba" title="nba icons">Nba icons created by Chanut-is-Industries - Flaticon</a>-->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
@@ -16,19 +18,13 @@
     <!-- Title -->
     <title>Stats all Folks</title>
 </head>
+
 <body>
-<div class="bg-video" style="position:relative;">
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var container = document.querySelector('.bg-video');
-            var video = container && container.querySelector('video');
-            if (video) {
-                video.removeAttribute('autoplay');
-                video.pause();
-            }
-            var btn = document.getElementById('enter-btn');
-            if (!btn) return;
-            btn.addEventListener('click', function () {
+    <div class="bg-video" style="position:relative;">
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var container = document.querySelector('.bg-video');
+                var video = container && container.querySelector('video');
                 if (video) {
                     try {
                         video.currentTime = 0;
@@ -44,27 +40,27 @@
                     window.location.href = 'landing_page.html';
                 }, 5000);
             });
-        });
-    </script>
-    <button id="enter-btn" aria-label="Enter site" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-                   z-index:10; padding:12px 24px; font-size:18px; background:#ffffffcc;
-                   border:1px solid rgba(0,0,0,0.2); border-radius:6px; cursor:pointer;">
-        Enter
-    </button>
-    <script>
-        (function () {
-            var btn = document.getElementById('enter-btn');
-            btn.addEventListener('click', function () {
-                btn.style.display = 'none';
-            });
-        })();
-    </script>
-    <video autoplay muted loop id="bg-video " style="width:100%; height:100vh; object-fit:cover;">
-        <source src="assets/videos/230749_small.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</div>
->>>>>>> main
+        </script>
+        <button id="enter-btn" aria-label="Enter site" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+                   z-index:10; padding:12px 24px; font-size:28px; background:none; border:none; 
+                 cursor: pointer; opacity: 80%;">
+            <img src="../assets/images/enter-image-2.png" alt="Enter site"
+                style="width:200px; height:auto; transition: transform 0.3s;">
+        </button>
+        <script>
+            (function () {
+                var btn = document.getElementById('enter-btn');
+                btn.addEventListener('click', function () {
+                    btn.style.display = 'none';
+                });
+            })();
+        </script>
+        <video autoplay muted loop id="bg-video " style="width:100%; height:100vh; object-fit:cover;">
+            <source src="assets/videos/230749_small.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    >>>>>>> main
 </body>
 
 </html>

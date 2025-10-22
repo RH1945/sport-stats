@@ -1,7 +1,7 @@
 var simplemaps_usmap_mapdata={
     main_settings: {
         //General settings
-        width: "500", //'700' or 'responsive'
+        width: "700", //'700' or 'responsive'
         background_color: "#FFFFFF",
         background_transparent: "yes",
         border_color: "#453535",
@@ -9,20 +9,20 @@ var simplemaps_usmap_mapdata={
 
         //State defaults
         state_description: "State Description",
-        state_color: "#88A4BC",
-        state_hover_color: "#3B729F",
+        state_color: "rgba(112,133,23,0.63)",
+        state_hover_color: "rgba(94,136,98,0.63)",
         state_url: "",
         border_size: "3",
-        all_states_inactive: "no",
+        all_states_inactive: "yes",
         all_states_zoomable: "no",
 
         //Location defaults
-        location_description: "Add location markers using latitude and longitude!",
-        location_color: "#2041D4",
+        location_description: "",
+        location_color: "rgb(19,42,133)",
         location_opacity: 0.8,
         location_hover_opacity: 1,
         location_url: "",
-        location_size: "24",
+        location_size: "36",
         location_border_color: "#FFFFFF",
         location_border: 2,
         location_hover_border: 2.5,
@@ -343,7 +343,7 @@ var simplemaps_usmap_mapdata={
         },
         "12": {
             lat: 33.962,
-            lng: -118.357,
+            lng: -117.357,
             name: "Inglewood",
             description: "Los Angeles Clippers",
             type: "image",

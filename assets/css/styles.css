@@ -61,16 +61,6 @@ footer {
     grid-template-columns: 1fr;
     gap: 1rem;
 }
-<<<<<<< HEAD
-=======
-@media (min-width: 992px) {
-    /* desktop: card opens to the right */
-    .header .section {
-        grid-template-columns: 1fr min(380px, 35vw);
-    }
-}
->>>>>>> main
-
 #team-card {
     border-radius: 16px;
     background: #fff;
@@ -198,7 +188,7 @@ footer {
 
 .navbar {
     min-height: 80px;
-    background-color: var(--primary-color);
+    background-color: #b82d2d;
     font-family: var(--primary-font);
     font-size: 48px;
 }
@@ -269,7 +259,6 @@ a {
 #ticket-link {
     color: white;
 }
-/* Enter button */
 
 /* Footer Styles */
 
@@ -280,11 +269,12 @@ footer {
 }
 
 footer h5 {
-    color: var(--nba-blue);
-    font-family: "Major Mono Display", monospace;
+    color: white;
+    font-family: "Fugaz One", sans-serif;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    text-shadow: 1px;
 }
 
 .icon-container {

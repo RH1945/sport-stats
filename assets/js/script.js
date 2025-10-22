@@ -488,6 +488,7 @@ async function displayGames(teamId = null) {
 
 // Event listener for dropdown change
 teamsList.addEventListener("change", () => {
+    // Set selectedTeamId to the dropdown’s current value or undefined if value is empty
     const selectedTeamId = teamsList.value || null;
     displayGames(selectedTeamId);
 });
@@ -498,6 +499,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // // Event listener for dropdown change
     const selectedTeamId = teamsList.value;
 
+    // This checks if "no team selected" is the selected option, if so it clears the text otherwise shows the games
     if (selectedTeamId === "") {
         gamesList.innerHTML = "";
         return;
@@ -505,3 +507,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     displayGames(selectedTeamId);
 });
+
+
+
+// local JSON file fetch
+    async function loadTeams() {
+        try {
+            const response = await fetch('assets/sports-data/tableConvert.com_0iyg4w.json');
+
+                if (!response.ok) throw new Error(`HTTP error ${response.status}`);               
+        }
+
+        
+        // Put JSON data into an array 
+        const player = await response.json(); 
+        const container = document.getElementById(''); 
+
+        // Error handling
+        catch (error) {
+        console.error("error loading JSON," error);
+        }
+    }
+
+    // Runs when the page loads 
+    document.addEventListener('DOMContentLoaded', loadPlayers);

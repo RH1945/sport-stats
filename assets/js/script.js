@@ -456,7 +456,9 @@ async function getTeams() {
     const res = await fetch(`${urlAdd}/teams`, {
         headers: { Authorization: `Bearer ${apiKey}` },
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+    }
     return res.json();
 }
 
@@ -476,7 +478,9 @@ async function getGames({ start_date, end_date, teamId = null }) {
         headers: { Authorization: `Bearer ${apiKey}` },
     });
     // Conditional statement to check if HTTP response is not OK ie 404 and returns error code if there is one
-    if (!res.ok) throw new Error(`Balldontlie HTTP ${res.status}`);
+    if (!res.ok) {
+        throw new Error(`Balldontlie HTTP ${res.status}`);
+    }
     // Converts HTTP response to a JSON
     return res.json();
 }
@@ -496,7 +500,7 @@ async function populateTeams() {
         // make it default
         noTeamOption.selected = true;
 
-        data.data.forEach((team) => {
+        data.data.forEach(function (team) {
             const option = document.createElement("option");
             option.value = team.id;
             option.textContent = team.full_name;
@@ -510,7 +514,9 @@ async function populateTeams() {
 // Asynchronous function to handle displaying games in the DOM
 async function displayGames(teamId = null) {
     // The conditional prevents the function running is the element is missing, avoids errors
-    if (!gamesList) return;
+    if (!gamesList) {
+        return;
+    }
     gamesList.innerHTML = "<p>Loading games...</p>";
 
     // This calls getGames and waits for a response
@@ -540,9 +546,7 @@ async function displayGames(teamId = null) {
 
             gameItem.innerHTML = `
                 <strong>${game.home_team.full_name}</strong> vs <strong>${game.visitor_team.full_name}</strong><br>
-                ${gameDate} <br>
-    
-            `;
+                ${gameDate}<br>`;
             // Adds in the newly created game <div> to the gamesList container in the DOM
             gamesList.appendChild(gameItem);
         });
@@ -563,7 +567,7 @@ teamsList.addEventListener("change", () => {
 });
 
 // Initialise
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", async function () {
     await populateTeams();
     // // Event listener for dropdown change
     const selectedTeamId = teamsList.value;
@@ -577,41 +581,39 @@ document.addEventListener("DOMContentLoaded", async () => {
     displayGames(selectedTeamId);
 });
 
-// local JSON file fetch
-async function loadTeams() {
-    try {
-        const response = await fetch(
-            "assets/sports-data/tableConvert.com_0iyg4w.json"
-        );
-        console.log("its working");
+// // local JSON file fetch
+// async function loadTeams() {
+//     try {
+//         const response = await fetch(
+//             "assets/sports-data/tableConvert.com_0iyg4w.json"
+//         );
+//         console.log("its working");
 
-        if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+//         if (!response.ok) {
+//             throw new Error(`HTTP error ${response.status}`);
+//         }
+//         // Put JSON data into an array
+//         const teamData = await response.json();
 
-        // Put JSON data into an array
-        const teamData = await response.json();
+//         const container = document.querySelector(".value");
 
-        const container = document.querySelector(".value");
+//         container.innerHTML = "";
 
-        container.innerHTML = "";
+//         teamData.forEach((team, index) => {
+//             const teamDiv = document.createElement("div");
+//             // teamDiv.classList.add("team-card");
 
-        teamData.forEach((team, index) => {
-            const teamDiv = document.createElement("div");
-            // teamDiv.classList.add("team-card");
+//             teamDiv.innerHTML = `
+//           <p><strong>Team ${index + 1}</strong></p>
+//           <p>Offense Four Factors: ${team["Offense Four Factors"]}</p>
+//           <p>Defense Four Factors: ${team["Defense Four Factors"]}</p>`;
+//             container.appendChild(teamDiv);
+//         });
+//     } catch (error) {
+//         // Error handling
+//         console.error("error loading JSON", error);
+//     }
+// }
 
-            teamDiv.innerHTML = `
-        
-          <p><strong>Team ${index + 1}</strong></p>
-          <p>Offense Four Factors: ${team["Offense Four Factors"]}</p>
-          <p>Defense Four Factors: ${team["Defense Four Factors"]}</p>
-        
-            `;
-            container.appendChild(teamDiv);
-        });
-    } catch (error) {
-        // Error handling
-        console.error("error loading JSON", error);
-    }
-}
-
-// Runs when the page loads
-document.addEventListener("DOMContentLoaded", loadTeams);
+// // Runs when the page loads
+// document.addEventListener("DOMContentLoaded", loadTeams);

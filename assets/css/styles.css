@@ -55,223 +55,6 @@ footer {
     --highlight-color-light: #7a9fc2; /* light blue */
     --nba-blue: #17408b; /* nba blue */
 }
-/* --- Team Card Layout --- */
-
-/* Card must be a clipping context */
-#team-card {
-    position: relative;
-    overflow: hidden; /* clip the background logo inside the card */
-}
-
-/* Background logo layer (doesn't affect layout) */
-.team-card__bg {
-    position: absolute;
-    inset: 0; /* full card */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain; /* keep full logo visible, no stretching */
-    opacity: 0.2; /* subtle; adjust 0.08–0.18 as you like */
-    filter: saturate(90%) contrast(110%);
-    pointer-events: none; /* ignore mouse */
-    z-index: 0;
-}
-
-/* Optional readable overlay for text contrast (subtle vignette) */
-.team-card__vignette {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-            ellipse at center,
-            rgba(0, 0, 0, 0.06),
-            transparent 60%
-        ),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0));
-    z-index: 0;
-}
-
-/* Make the actual content appear above the bg */
-.team-card__content {
-    position: relative;
-    z-index: 1;
-}
-.header .section {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
-#team-card {
-    border-radius: 16px;
-    background: #fff;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    padding: 1rem;
-    display: none; /* hidden until a team is clicked */
-    align-self: start;
-    max-height: 80vh;
-    overflow: auto;
-}
-
-#team-card.open {
-    display: block;
-}
-
-.team-card__header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-family: "Fugaz One", system-ui, sans-serif;
-}
-.team-card__logo {
-    width: 56px;
-    height: 56px;
-    object-fit: contain;
-}
-.team-card__title {
-    font-size: 1.25rem;
-    margin: 0;
-}
-
-.team-card__meta {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    margin: 0.75rem 0 0;
-}
-.team-card__pill {
-    background: #f6f7fb;
-    border-radius: 10px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
-}
-.team-card__stats {
-    margin-top: 0.75rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-}
-.team-card__stat {
-    background: #0b1b37;
-    color: #fff;
-    border-radius: 12px;
-    padding: 0.75rem;
-    text-align: center;
-}
-.team-card__stat .label {
-    font-size: 0.8rem;
-    opacity: 0.8;
-}
-.team-card__stat .value {
-    font-size: 1.15rem;
-    font-weight: 700;
-}
-
-.team-card__desc {
-    margin: 0.75rem 0;
-    line-height: 1.45;
-}
-
-.team-card__actions {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
-}
-.team-card__btn {
-    border: 1px solid #e3e6ef;
-    border-radius: 10px;
-    padding: 0.5rem 0.75rem;
-    text-decoration: none;
-    color: inherit;
-    background: #fff;
-}
-.team-card__btn:hover {
-    background: #f6f7fb;
-}
-
-/* --- Mini hover card that follows the cursor --- */
-#team-mini {
-    position: absolute;
-    z-index: 10000;
-    pointer-events: none;
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 0.6rem 0.7rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    transform: translate(8px, 8px);
-    display: none;
-    min-width: 200px;
-    max-width: 280px;
-    font: 12px/1.5 Verdana, Arial, Helvetica, sans-serif; /* matches lib default */
-}
-#team-mini .name {
-    font-weight: 700;
-    display: block;
-    margin-bottom: 0.25rem;
-}
-#team-mini .row {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-#team-mini .pill {
-    background: #f6f7fb;
-    border-radius: 8px;
-    padding: 0.2rem 0.5rem;
-}
-#team-mini .name {
-    font-weight: 700;
-    display: block;
-    margin-bottom: 0.25rem;
-}
-#team-mini .row {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-#team-mini .pill {
-    background: #f6f7fb;
-    border-radius: 8px;
-    padding: 0.2rem 0.5rem;
-}
-
-/* ===== Team Card – visual refresh ===== */
-#team-card {
-    position: relative;
-    overflow: hidden; /* keep bg logo clipped */
-    border-radius: 18px;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.72);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-    color: #0b1220;
-}
-
-#team-card .team-card__bg {
-    position: absolute;
-    inset: 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    opacity: 0.08; /* subtler background */
-    filter: saturate(0) contrast(110%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-#team-card .team-card__vignette {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.6),
-        rgba(255, 255, 255, 0.1)
-    );
-    z-index: 0;
-}
-
-#team-card .team-card__content {
-    position: relative;
-    z-index: 1;
-}
 
 /* Header */
 .team-card__header {
@@ -297,74 +80,6 @@ footer {
     border-radius: 999px;
     background: #f3f4f8;
     border: 1px solid #e7e9f3;
-}
-
-/* Meta grid (pills) */
-.team-card__meta {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0.5rem;
-    margin: 0.5rem 0 0.75rem;
-}
-.team-card__pill {
-    background: #f6f7fb;
-    border: 1px solid #e8ebf5;
-    border-radius: 12px;
-    padding: 0.55rem 0.7rem;
-    font-size: 0.92rem;
-}
-
-/* Stats tiles */
-.team-card__stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.6rem;
-    margin: 0.25rem 0 0.75rem;
-}
-@media (max-width: 520px) {
-    .team-card__stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-.stat {
-    background: #0b1b37;
-    color: #fff;
-    border-radius: 14px;
-    padding: 0.75rem;
-    text-align: center;
-}
-.stat .label {
-    font-size: 0.78rem;
-    opacity: 0.8;
-}
-.stat .value {
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-/* Description */
-.team-card__desc {
-    margin: 0.5rem 0 0.8rem;
-    line-height: 1.5;
-    color: #162335;
-}
-
-/* Actions */
-.team-card__actions {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-.team-card__btn {
-    border: 1px solid #e3e6ef;
-    border-radius: 10px;
-    padding: 0.55rem 0.85rem;
-    background: #fff;
-    text-decoration: none;
-    color: #0b1220;
-}
-.team-card__btn:hover {
-    background: #f3f5fb;
 }
 
 /* Placeholder styles */
@@ -503,6 +218,113 @@ footer h5 {
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
+}
+
+
+
+/* ============================================================================
+   =============== STATS CARD (CSV) ADD-ON — LAYOUT & CARD ====================
+   ============================================================================ */
+
+/* Make the map’s parent a side-by-side shell so the card sits at the right */
+.map-shell{
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+/* Let the map flex; prevent overflow in flex layouts */
+#map{
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* Side card — fixed comfy column */
+#team-card{
+    flex: 0 0 360px;
+    max-width: 360px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    padding: 14px;
+    background: rgba(255,255,255,0.78);   /* no overlay, no page blur */
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.15);
+    color: #0b1220;
+}
+
+/* Hide card if empty (after close) so it doesn’t occupy space */
+#team-card:not(.open):empty{
+    display: none;
+}
+
+/* Background logo fits *inside* the card (clipped) */
+#team-card .team-card__bg{
+    position: absolute; inset: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: .09;
+    filter: saturate(0) contrast(110%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#team-card .team-card__vignette{
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,.55), rgba(255,255,255,.1));
+    z-index: 0;
+}
+#team-card .team-card__content{ position: relative; z-index: 1; }
+
+/* Header */
+.team-card__header{
+    display:flex; align-items:center; justify-content:space-between; gap:.5rem;
+}
+.team-card__title{
+    font-family: "Fugaz One", system-ui, sans-serif;
+    font-size: 1.45rem; margin: 0;
+}
+.team-card__close{
+    border: 0; background: #eef1f8; color: #0b1220;
+    border-radius: 10px; width: 36px; height: 32px;
+    cursor: pointer; font-size: 16px; line-height: 32px;
+}
+.team-card__close:hover{ background: #e6eaf4; }
+
+/* Chips & meta */
+.team-card__chips{ display:flex; flex-wrap:wrap; gap:.4rem; margin:.25rem 0 .6rem; }
+.chip{
+    font-size:.78rem; padding:.28rem .5rem; border-radius:999px;
+    background:#f3f4f8; border:1px solid #e7e9f3;
+}
+.team-card__meta{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:.5rem; margin:.3rem 0 .8rem;
+}
+.team-card__pill{
+    background:#f6f7fb; border:1px solid #e8ebf5;
+    border-radius:12px; padding:.55rem .7rem; font-size:.92rem; color:#162335;
+}
+
+/* Stats */
+.team-card__stats{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:.6rem; margin:.25rem 0 .75rem;
+}
+.stat{
+    background:#0b1b37; color:#fff; border-radius:14px;
+    padding:.75rem; text-align:center;
+}
+.stat .label{ font-size:.78rem; opacity:.85; }
+.stat .value{ font-size:1.2rem; font-weight:700; }
+
+/* Description */
+.team-card__desc{ margin:.5rem 0 .4rem; line-height:1.5; color:#162335; }
+
+/* Small screens: keep the card to the right; let it shrink a bit */
+@media (max-width: 640px){
+    #team-card{ flex-basis: 320px; max-width: 320px; }
 }
 
 /* Media queries */

@@ -55,238 +55,6 @@ footer {
     --highlight-color-light: #7a9fc2; /* light blue */
     --nba-blue: #17408b; /* nba blue */
 }
-/* --- Team Card Layout --- */
-
-/* Card must be a clipping context */
-#team-card {
-    position: relative;
-    overflow: hidden;          /* clip the background logo inside the card */
-}
-
-
-/* Optional readable overlay for text contrast (subtle vignette) */
-.team-card__vignette {
-    position: absolute;
-    inset: 0;
-    background:
-            radial-gradient(ellipse at center, rgba(0,0,0,0.06), transparent 60%) ,
-            linear-gradient(to bottom, rgba(0,0,0,0.03), rgba(0,0,0,0));
-    z-index: 0;
-}
-
-/* Make the actual content appear above the bg */
-.team-card__content {
-    position: relative;
-    z-index: 1;
-}
-.header .section {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
- HEAD
-@media (min-width: 992px) {
-    /* desktop: card opens to the right */
-    .header .section {
-        grid-template-columns: 1fr min(380px, 35vw);
-    }
-}
->>>>>>> main,
-#team-card {
-    border-radius: 16px;
-    background: #fff;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    padding: 1rem;
-    display: none; /* hidden until a team is clicked */
-    align-self: start;
-    max-height: 80vh;
-    overflow: auto;
-}
-
-#team-card.open {
-    display: block;
-}
-
-.team-card__header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-family: "Fugaz One", system-ui, sans-serif;
-}
-.team-card__logo {
-    width: 56px;
-    height: 56px;
-    object-fit: contain;
-}
-.team-card__title {
-    font-size: 1.25rem;
-    margin: 0;
-}
-
-.team-card__meta {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    margin: 0.75rem 0 0;
-}
-.team-card__pill {
-    background: #f6f7fb;
-    border-radius: 10px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
-}
-.team-card__stats {
-    margin-top: 0.75rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-}
-.team-card__stat {
-    background: #0b1b37;
-    color: #fff;
-    border-radius: 12px;
-    padding: 0.75rem;
-    text-align: center;
-}
-.team-card__stat .label {
-    font-size: 0.8rem;
-    opacity: 0.8;
-}
-.team-card__stat .value {
-    font-size: 1.15rem;
-    font-weight: 700;
-}
-
-.team-card__desc {
-    margin: 0.75rem 0;
-    line-height: 1.45;
-}
-
-.team-card__actions {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
-}
-.team-card__btn {
-    border: 1px solid #e3e6ef;
-    border-radius: 10px;
-    padding: 0.5rem 0.75rem;
-    text-decoration: none;
-    color: inherit;
-    background: #fff;
-}
-.team-card__btn:hover {
-    background: #f6f7fb;
-}
-
-/* --- Mini hover card that follows the cursor --- */
-#team-mini {
-    position: absolute;
-    z-index: 10000;
-    pointer-events: none;
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 0.6rem 0.7rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    transform: translate(8px, 8px);
-    display: none;
-    min-width: 200px;
-    max-width: 280px;
-    font: 12px/1.5 Verdana, Arial, Helvetica, sans-serif; /* matches lib default */
-}
-#team-mini .name {
-    font-weight: 700;
-    display: block;
-    margin-bottom: 0.25rem;
-}
-#team-mini .row {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-#team-mini .pill {
-    background: #f6f7fb;
-    border-radius: 8px;
-    padding: 0.2rem 0.5rem;
-}
-#team-mini .name { font-weight: 700; display: block; margin-bottom: .25rem; }
-#team-mini .row { display: flex; gap: .5rem; flex-wrap: wrap; }
-#team-mini .pill { background:#f6f7fb; border-radius: 8px; padding:.2rem .5rem; }
-
-/* ===== Team Card – visual refresh ===== */
-#team-card {
-    position: relative;
-    overflow: hidden;          /* keep bg logo clipped */
-    border-radius: 18px;
-    padding: 16px;
-    background: rgba(255,255,255,0.72);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 12px 30px rgba(0,0,0,.12);
-    color: #0b1220;
-}
-
-#team-card .team-card__bg {
-    position: absolute; inset: 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    opacity: .28;              /* subtler background */
-    filter: saturate(80%) contrast(110%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-#team-card .team-card__vignette {
-    position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgba(255,255,255,.6), rgba(255,255,255,.1));
-    z-index: 0;
-}
-
-#team-card .team-card__content { position: relative; z-index: 1; }
-
-/* Header */
-.team-card__header { display:flex; align-items:baseline; gap:.6rem; margin-bottom:.25rem; }
-.team-card__title { font-family: "Fugaz One", system-ui, sans-serif; font-size: 1.6rem; margin:0; }
-.team-card__chips { display:flex; flex-wrap:wrap; gap:.4rem; margin:.2rem 0 .6rem; }
-.chip {
-    font-size:.78rem; padding:.28rem .5rem; border-radius:999px;
-    background:#f3f4f8; border:1px solid #e7e9f3;
-}
-
-/* Meta grid (pills) */
-.team-card__meta {
-    display:grid; grid-template-columns: repeat( auto-fit, minmax(150px,1fr) );
-    gap:.5rem; margin:.5rem 0 .75rem;
-}
-.team-card__pill {
-    background:#f6f7fb; border:1px solid #e8ebf5;
-    border-radius:12px; padding:.55rem .7rem; font-size:.92rem;
-}
-
-/* Stats tiles */
-.team-card__stats {
-    display:grid; grid-template-columns: repeat(3, 1fr);
-    gap:.6rem; margin:.25rem 0 .75rem;
-}
-@media (max-width: 520px){ .team-card__stats{ grid-template-columns: repeat(2,1fr); } }
-.stat {
-    background:#0b1b37; color:#fff; border-radius:14px; padding:.75rem; text-align:center;
-}
-.stat .label{ font-size:.78rem; opacity:.8; }
-.stat .value{ font-size:1.2rem; font-weight:700; }
-
-/* Description */
-.team-card__desc { margin:.5rem 0 .8rem; line-height:1.5; color:#162335; }
-
-/* Actions */
-.team-card__actions { display:flex; gap:.5rem; flex-wrap:wrap; }
-.team-card__btn {
-    border:1px solid #e3e6ef; border-radius:10px; padding:.55rem .85rem;
-    background:#fff; text-decoration:none; color:#0b1220;
-}
-.team-card__btn:hover{ background:#f3f5fb; }
-
 
 /* Placeholder styles */
 
@@ -428,5 +196,58 @@ footer h5 {
     /* desktop: card opens to the right */
     .header .section {
         grid-template-columns: 1fr min(380px, 35vw);
+    }
+}
+
+/* assets/css/team-card-csv.css */
+
+/* Hover mini bar (above the map) */
+
+/* Modal backdrop (mobile) */
+#team-overlay{
+    display:none; position:fixed; inset:0; background:rgba(5,10,25,.55);
+    z-index:1000;
+}
+#team-overlay.open{ display:block; }
+body.no-scroll{ overflow:hidden; }
+
+/* Card */
+#team-card{
+    position:relative; overflow:hidden; border-radius:18px; padding:16px;
+    background:rgba(255,255,255,.72); backdrop-filter:blur(8px);
+    box-shadow:0 12px 30px rgba(0,0,0,.18); color:#0b1220; z-index:1010;
+    max-width:420px;
+}
+#team-card .team-card__bg{ position:absolute; inset:0; background:no-repeat center / contain; opacity:.09; filter:saturate(0) contrast(110%); pointer-events:none; z-index:0; }
+#team-card .team-card__vignette{ position:absolute; inset:0; background:linear-gradient(to bottom, rgba(255,255,255,.6), rgba(255,255,255,.12)); z-index:0; }
+#team-card .team-card__content{ position:relative; z-index:1; }
+
+/* Header + close */
+.team-card__header{ display:flex; align-items:center; justify-content:space-between; gap:.5rem; }
+.team-card__title{ font-family:"Fugaz One", system-ui, sans-serif; font-size:1.6rem; margin:0; }
+.team-card__close{ border:0; background:#eef1f8; color:#0b1220; border-radius:10px; width:36px; height:32px; cursor:pointer; font-size:16px; line-height:32px; }
+.team-card__close:hover{ background:#e6eaf4; }
+
+/* Chips / meta */
+.team-card__chips{ display:flex; flex-wrap:wrap; gap:.4rem; margin:.3rem 0 .6rem; }
+.chip{ font-size:.78rem; padding:.28rem .5rem; border-radius:999px; background:#f3f4f8; border:1px solid #e7e9f3; }
+.team-card__meta{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:.5rem; margin:.3rem 0 .8rem; }
+.team-card__pill{ background:#f6f7fb; border:1px solid #e8ebf5; border-radius:12px; padding:.55rem .7rem; font-size:.92rem; color:#162335; }
+
+/* Stats */
+.team-card__stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; margin:.25rem 0 .75rem; }
+@media(max-width:520px){ .team-card__stats{ grid-template-columns:repeat(2,1fr); } }
+.stat{ background:#0b1b37; color:#fff; border-radius:14px; padding:.75rem; text-align:center; }
+.stat .label{ font-size:.78rem; opacity:.85; }
+.stat .value{ font-size:1.2rem; font-weight:700; }
+
+/* Description */
+.team-card__desc{ margin:.5rem 0 .4rem; line-height:1.5; color:#162335; }
+
+/* Mobile: make card a modal on top */
+@media (max-width: 991.98px){
+    #team-card{
+        position:fixed; inset:auto 12px 12px 12px; top:8%;
+        max-width:none; border-radius:18px; z-index:1011;
     }
 }

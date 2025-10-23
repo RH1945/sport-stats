@@ -15,6 +15,47 @@ A responsive, searchable database of NBA players showcasing an API implementatio
 *(Write a short summary of the project — what it does, its goals, and the technologies involved.)*
 
 ---
+## Index
+* [Features](#features)
+* [Introduction](#introduction)
+
+* [Architecture](#architecture)
+* [Design](#design)
+* [AI](#ai)
+* [Team experience](#team-experiece)
+* [Resources](#resources)
+* [Git](#git)
+
+* [Features](#Features)
+    
+    - [Table of Contents](#TOC)
+    - [Project Ouline](#project-outline)
+* [Project Planning](#project-planning)
+    - [UX Design](#ux-design)
+        - [User Stories](#user-stories)
+        - [Colors](#colors)
+        - [Fonts](#fonts)
+        - [Imagery](#imagery)
+        - [Wireframes](#wireframes)
+* [Features](#features)
+    - [General Features](#general-features)
+        - [Navigation and Hero Section](#navigation-and-hero-section)
+        - [Bootstrap Cards](#bootstrap-cards)
+        - [Policies Section](#policies-section)
+        - [Footer](#footer)
+        - [Links and Buttons](#links-and-buttons)
+    - [Resnposive Design](#responsive-design)
+* [Built With](#built-with)
+    - [Technology and Languages](#technologies-and-languages)
+    - [Libraries and Frameworks](#libraries-and-frameworks)
+    - [Tools & Programs](#tools-and-programs)
+* [Development](#deployment)
+* [Testing](#testing)
+* [Credits](#credits)
+    - [Code](#code)
+    - [Content Research](#content-research)
+    - [Media](#media)
+    - [Acknowledgements](#acknowledgements)
 
 ##  Features
 - Interactive US map displaying NBA teams.
@@ -90,3 +131,20 @@ the sport for the country. Also, we wanted somewhat calm colors.
 Contrary to many sport website that tend to have sharp and neon colors.
 
 ![MAP PALLETE.png](assets/images/MAP%20PALLETE.png)
+
+
+---
+## Known Bugs
+
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##

@@ -1,162 +1,3 @@
-
-
-## How to view locally
-
-This is a static website — you can open `index.html` directly in a browser, but some browsers restrict loading local JSON via file://. To avoid that, start a simple HTTP server.
-
-Using Python 3 (recommended):
-
-```powershell
-python -m http.server 8000
-# then open http://localhost:8000
-```
-
-Using Node (npx http-server):
-
-```powershell
-npx http-server -p 8000
-# then open http://localhost:8000
-```
-
-Or use the VS Code Live Server extension for a quick local preview.
-
-## Development notes
-
--   Keep logic that manipulates data inside `assets/js/` and presentation in `assets/css/` for separation of concerns.
--   When adding data fields, update the parsing logic in `script.js` and any templates in the UI.
--   Prefer small, well-documented functions and add JSDoc comments for complex helpers.
-
-
-# sport-stats
-
-
-# 🏀 NBA Stats Map — Interactive Team Explorer
-
-## Overview
-
-_(Write a short summary of the project — what it does, its goals, and the technologies involved.)_
-
-# sport-stats
-
-Live demo: https://rh1945.github.io/sport-stats/
-
-A responsive, interactive website showcasing NBA team and player statistics on a US map. Built as a Hackathon project (Code Institute, Oct 2025), the site demonstrates client-side data visualization, search/filter functionality, and a lightweight API/data-import approach.
-
-Contributors
-| Name | Role | GitHub / LinkedIn |
-|---|---|---|
-| Rafael H. Sanchez | Project Lead | https://github.com/RH1945 / https://www.linkedin.com/in/rafael-horwood-sanchez-291914224/ |
-| James Fowler | Project Contributor | https://github.com/jamesfowler-dev / https://www.linkedin.com/in/jamesfowler21/ |
-| Richard Durden | Project Contributor | https://github.com/MoustacheCode / https://www.linkedin.com/in/richard-duerden-692556227/ |
-
-## 🏀 Project purpose
-
-This project provides an exploratory interface for NBA statistics with an emphasis on team geography and roster-level data. Its goals are:
-
--   Make team and player stats easily discoverable via an interactive US map.
--   Provide a responsive, accessible UI for desktop and mobile users.
--   Demonstrate client-side data visualization techniques and simple data ingestion from JSON/CSV.
-
-## Key features
-
--   Interactive US map with clickable team markers/regions.
--   Team cards and player lists with sortable/searchable stats.
--   Responsive layout: side panel on large screens, modals on mobile.
--   Data imported from local JSON (and convertible CSV) with example API hooks for future integration.
--   Lightweight vanilla JS implementation (no heavy frameworks) to keep the bundle size small.
--   Accessible markup and progressive enhancement for older browsers.
-
-## Tech stack
-
--   HTML5, CSS3 (static styles in `assets/css/styles.css`)
--   JavaScript (vanilla) files in `assets/js/` (`script.js`, `usmap.js`, `mapdata.js`)
--   Static JSON data in `assets/sports-data/` (exported from CSV via `tableConvert.com_0iyg4w.json`)
--   Media and images in `assets/media/` and `assets/images/`
-
-## Data sources & format
-
--   Primary data: `assets/sports-data/tableConvert.com_0iyg4w.json` — JSON export of the dataset used by the UI.
--   The project includes helper code to parse CSV -> JSON where appropriate. When adding/updating data, keep the JSON shape consistent with existing entries (team id, name, city, stats, roster array).
-
-## Project structure
-
-Top-level files and purpose (partial):
-
--   `index.html` — main landing / map page
--   `landing_page.html` — secondary landing/info page
--   `assets/css/styles.css` — styles
--   `assets/js/script.js` — main UI logic
--   `assets/js/usmap.js` — map interactions
--   `assets/js/mapdata.js` — map geometry / helper data
--   `assets/sports-data/tableConvert.com_0iyg4w.json` — sample dataset
--   `assets/images/` — team and UI images
--   `assets/media/` — videos and other media
-
-## How to view locally
-
-This is a static website — you can open `index.html` directly in a browser, but some browsers restrict loading local JSON via file://. To avoid that, start a simple HTTP server.
-
-Using Python 3 (recommended):
-
-```powershell
-python -m http.server 8000
-# then open http://localhost:8000
-```
-
-Using Node (npx http-server):
-
-```powershell
-npx http-server -p 8000
-# then open http://localhost:8000
-```
-
-Or use the VS Code Live Server extension for a quick local preview.
-
-## Development notes
-
--   Keep logic that manipulates data inside `assets/js/` and presentation in `assets/css/` for separation of concerns.
--   When adding data fields, update the parsing logic in `script.js` and any templates in the UI.
--   Prefer small, well-documented functions and add JSDoc comments for complex helpers.
-
-## Accessibility
-
--   Use semantic HTML for layout and controls.
--   Ensure map interactions are keyboard-accessible and provide aria-labels for interactive elements.
-
-## Tests & validation
-
--   This repo contains no automated tests yet. For a local sanity check, open `index.html` in a local server and verify data loads and map interactions work.
-
-## Contributing
-
--   Fork the repo, create a feature branch, then open a pull request with a clear description of the change.
--   Include screenshots or short GIFs for UI changes and a brief note about performance/accessibility effects.
-
-## Deployment
-
--   Deployed via GitHub Pages (see the Live demo link at the top). To publish changes: push to the `gh-pages` branch or configure Pages to serve from the repository's `docs/` or `main` branch depending on your repo settings.
-
-## Roadmap / ideas
-
--   Add a small backend to provide live stats via an API.
--   Implement player detail pages and bookmarking.
--   Add basic unit/integration tests for any added JS modules.
-
-## License
-
-This project follows the LICENSE file in the repository root. Please review that file for details.
-
-## Contact & credits
-
-Primary contact: Rafael H. Sanchez — https://github.com/RH1945
-
----
-
-_Generated README template — update any sections above to match the live project specifics._
-message.txt
-7 KB
-
-
 # 🏀 Sport-Stats — Interactive NBA Map
 ### [🔗 Live site](https://rh1945.github.io/sport-stats/)
 *A responsive, searchable database of NBA teams demonstrating API integration, data visualization, and responsive UI/UX design.*
@@ -198,49 +39,6 @@ message.txt
 
 ---
 
-## 🏀 Project purpose
-
-This project provides an exploratory interface for NBA statistics with an emphasis on team geography and roster-level data. Its goals are:
-
--   Make team and player stats easily discoverable via an interactive US map.
--   Provide a responsive, accessible UI for desktop and mobile users.
--   Demonstrate client-side data visualization techniques and simple data ingestion from JSON/CSV.
-
-## Key features
-
--   Interactive US map with clickable team markers/regions.
--   Team cards and player lists with sortable/searchable stats.
--   Responsive layout: side panel on large screens, modals on mobile.
--   Data imported from local JSON (and convertible CSV) with example API hooks for future integration.
--   Lightweight vanilla JS implementation (no heavy frameworks) to keep the bundle size small.
--   Accessible markup and progressive enhancement for older browsers.
-
-## Tech stack
-
--   HTML5, CSS3 (static styles in `assets/css/styles.css`)
--   JavaScript (vanilla) files in `assets/js/` (`script.js`, `usmap.js`, `mapdata.js`)
--   Static JSON data in `assets/sports-data/` (exported from CSV via `tableConvert.com_0iyg4w.json`)
--   Media and images in `assets/media/` and `assets/images/`
-
-## Data sources & format
-
--   Primary data: `assets/sports-data/tableConvert.com_0iyg4w.json` — JSON export of the dataset used by the UI.
--   The project includes helper code to parse CSV -> JSON where appropriate. When adding/updating data, keep the JSON shape consistent with existing entries (team id, name, city, stats, roster array).
-
-## Project structure
-
-Top-level files and purpose (partial):
-
--   `index.html` — main landing / map page
--   `landing_page.html` — secondary landing/info page
--   `assets/css/styles.css` — styles
--   `assets/js/script.js` — main UI logic
--   `assets/js/usmap.js` — map interactions
--   `assets/js/mapdata.js` — map geometry / helper data
--   `assets/sports-data/tableConvert.com_0iyg4w.json` — sample dataset
--   `assets/images/` — team and UI images
--   `assets/media/` — videos and other media
-
 ## 🧠 Overview
 
 Sport-Stats is an interactive web application built during the **Code Institute Hackathon (Oct 2025)**.  
@@ -274,135 +72,164 @@ The goal was to demonstrate **data integration**, **responsive design**, and **t
 
 ## 🏗️ Architecture
 
+/assets
+├── css/styles.css
+├── js/script.js
+├── js/mapdata.js
+├── images/
+│ └── hackathon-basketball/
+└── data/teams.csv
+index.html
+README.md
 
-# sport-stats
-## https://rh1945.github.io/sport-stats/
-A responsive, searchable database of NBA players showcasing an API implementation. Hackathon Code Institute/Oct 2025.
 
-# 🏀 NBA Stats Map — Interactive Team Explorer
-
-## Overview
-*(Write a short summary of the project — what it does, its goals, and the technologies involved.)*
-
----
-## Index
-* [Features](#features)
-* [Introduction](#introduction)
-  - [Project Ouline](#project-outline)
-
-* [Architecture](#architecture)
-* [Design](#design)
-* [AI](#ai)
-* [Team experience](#team-experiece)
-* [Resources](#resources)
-* [Git](#git)
-*
-##  Features
-- Interactive US map displaying NBA teams.
-- Dynamic team cards showing up-to-date performance stats.
-- Fully responsive layout — side card on desktop, clean modal on mobile.
-- Data sourced from a curated CSV file / API integration.
-- Built for clarity, maintainability, and modern browser compatibility.
+- **`index.html`** – main structure and semantic layout.
+- **`mapdata.js`** – defines team coordinates and map configuration.
+- **`script.js`** – handles CSV loading, map events, and card rendering.
+- **`styles.css`** – responsive and accessible visual design.
+- **`teams.csv`** – local dataset of NBA teams and performance metrics.
 
 ---
 
-##  Architecture
-*(Describe the project structure — HTML, JS, CSS, and assets.)*
-
-Example:
-
-
----
-## Design
+## 🎨 Design
 
 ### Wireframes
- 
-The first idea was to make something similar to a team building 
-website using current stats (with and API) to calculate your team's strenght  
-given the availability of the sport API's and their price, we revised 
-the scope, the options available to us, and decide to build a responsive
-team map that show some important information, in addition to a calendar for
-upcoming games and recent ESPN news.
 
+The first idea was to create a fantasy team builder using API stats.  
+Due to limited free API access, the scope pivoted to a **visual team map** with clear data insights.  
+Wireframes were iteratively adjusted as responsiveness and real-time interactivity became the main goals.
 
-![img.png](img.png)
+![wireframes.png](assets/images/wireframes.png)
+
 ---
-### The header
 
-As the project template asked for a single page website we saw no need for a 
-functioning Navigation bar, we decided to keep it simple
-and representative of the website purpose, hence the inclusion of the NBA red.
+### The Header
 
-The next most important thing was to show the user how to navigate the site
-and how to use the tools. So, the header shows in simple terms how to find and use the 
-map and calendar. behind the header we wanted to add an inclusive background that had the NBA
-team, logos and some player's numbers.
+The header serves as a simple guide to using the site.  
+The design intentionally mirrors the **NBA color palette**, using strong reds and blues to evoke identity and trust.  
+A subtle instructional paragraph helps users understand how to explore the map and stats.
 
 ![header.png](assets/images/header.png)
+
 ---
-### The map
+
+### The Map
 
 The map went through different version of responsiveness, the team tried to keep
-it as the central idea for the website. The card proved difficult, going under the
-z-index of the map even at no matter what we did, the Simplemaps documentation is
-not as up to date as we would have hoped for such a great tool. Changing what are normally
-cities to the "capitals" of our teams, adding their logos and names on hover was our 
-limit for simplicity and time. 
+it as the central idea for the website.
+Integrating **Simplemaps.js** allowed flexible customization, though some z-index and event challenges required creative debugging.  
+Cities were replaced with **NBA team locations**, including logos, and hover popups were simplified for clarity.
+
 
 
 ![map-area.png](assets/images/map-area.png)
+
 ---
-### Card in different views
 
+### Card in Different Views
 
+The card design adapts between views:
+- On desktop, it anchors beside the map.
+- On mobile, it transitions into view under the map.  
+  This behavior ensures accessibility and readability on all devices.
 
 ![dropped-calendar.png](assets/images/dropped-calendar.png)
----
-### Color palettes
-
-for the general colors of the website we decided
-to go with the colors of the NBA logo:
-![NBA PALLETE.png](assets/images/NBA%20PALLETE.png)
----
-
-For the map, given that it was the grounding element of the project,
-our choice was to go for earthy tones that represented the depth of 
-the sport for the country. Also, we wanted somewhat calm colors. 
-Contrary to many sport website that tend to have sharp and neon colors.
-
-![MAP PALLETE.png](assets/images/MAP%20PALLETE.png)
-
 
 ---
 
-## AI
+### Color Palettes
+
+#### General Palette
+The general theme adopts the official NBA colors to align the interface with its subject.
+
+![NBA PALETTE.png](assets/images/NBA%20PALLETE.png)
+
+#### Map Palette
+For the map background and regional hues, we used **earthy and desaturated tones** to maintain contrast without visual fatigue.
+
+![MAP PALETTE.png](assets/images/MAP%20PALLETE.png)
 
 ---
 
-## Git 
+## 🤖 AI
+
+AI was used primarily as a **development assistant** —  
+to streamline debugging, structure refactors, and generate clean, maintainable code for responsiveness and DOM interactions.  
+It also helped conceptualize UI transitions and clarify logic for data loading and map interactions.
 
 ---
 
-## Libraries and frameworks
+## 👩‍💻 Team Experience
+
+All the issues we encountered were crossed and a MVP was achieved.
 
 ---
 
-## Development
+## 🧰 Git
+
+The project was managed entirely via **GitHub** with feature branches and pull requests.  
+Each major section (map, card, responsiveness) was developed in collaboration and merged through code review.  
+Commit history was kept descriptive to ensure clarity during the hackathon.
 
 ---
 
-## Deployment
+## 🧱 Libraries and Frameworks
+
+- [Simplemaps.js](https://simplemaps.com/docs/) — interactive U.S. map
+- [PapaParse](https://www.papaparse.com/) — CSV parsing
+- [Google Fonts](https://fonts.google.com/) — typography
+- Native **HTML5 / CSS3 / JS**
 
 ---
 
-### Testing
+## 💻 Development
 
-For testing we used
+Development followed a modular approach:
+1. Build the static layout (HTML + CSS).
+2. Integrate and customize Simplemaps.
+3. Implement CSV parsing and card generation.
+4. Debug z-index and responsiveness across breakpoints.
+5. Polish UX with animations and consistent branding.
+
+---
+
+## 🚀 Deployment
+
+The site is hosted via **GitHub Pages** directly from the `main` branch.  
+To deploy updates:
+1. Commit and push to `main`.
+2. Wait for GitHub Pages to rebuild.
+3. Visit [rh1945.github.io/sport-stats](https://rh1945.github.io/sport-stats/).
+
+---
+
+## 🧪 Testing
+
+Testing included:
+- Device compatibility, Phone, laptop and large desktop physical tests.
+- Responsiveness checks with Chrome DevTools.
+- CSV data integrity validation.
+- Manual QA for mobile UX (tap targets, modal closing).
+- Lighthouse
+
+
 
 ---
 
 ### Known Bugs
 
-## Credits
+- A white gap might show between map and card when resizing the window.
+- Map scaling occasionally clips logos when zooming on smaller devices.
 
 ---
+
+## 🙌 Credits
+
+- **Code Institute Hackathon (Oct 2025)** — organization and mentoring.
+- **Simplemaps.com** — for their free U.S. map implementation.
+- **NBA.com**, **ESPN.com**, and **balldontlie** — for team stats and inspiration.
+- Thank you, Mark Briscoe and Dillon MCcaffrey for the tutoring, and project direction.
+
+---
+
+*Made with code by Rafael, James and Richard*

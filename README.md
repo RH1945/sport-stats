@@ -78,21 +78,19 @@ under time constraints.
 
 ## 🏗️ Architecture
 
+
+- **`landing_page.html`** – main structure and semantic layout.
+- **`mapdata.js`** – defines map configuration.
+- **`script.js`** – handles CSV loading, map events, and card rendering.
+- **`styles.css`** – responsive and accessible visual design.
+
 - /assets
 - ├── css/styles.css
 - ├── js/script.js
 - ├── js/mapdata.js
 - ├── images/
-- │ └── hackathon-basketball/
-- └── data/teams.csv
+- └── hackathon-basketball/
 
-
-
-- **`index.html`** – main structure and semantic layout.
-- **`mapdata.js`** – defines team coordinates and map configuration.
-- **`script.js`** – handles CSV loading, map events, and card rendering.
-- **`styles.css`** – responsive and accessible visual design.
-- **`teams.csv`** – local dataset of NBA teams and performance metrics.
 
 ---
 

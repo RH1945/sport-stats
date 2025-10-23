@@ -105,13 +105,21 @@ logo {
 }
 
 .guide {
-    background-color: #17408b;
+    background-image: url("../images/bg-image.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: contrast(40%);
 }
 
 .guide h1 {
     color: white;
     text-shadow: 1px 1px 2px black;
     font-family: var(--primary-font);
+}
+
+.guide p {
+    color: white;
+    font-family: var(--secondary-font);
 }
 
 h2 {

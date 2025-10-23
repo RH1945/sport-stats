@@ -326,8 +326,9 @@ footer h5 {
 @media (max-width: 640px){
     #team-card{ flex-basis: 320px; max-width: 320px; }
 }
+/*-----------------------*/
+/*-----Media queries-----*/
 
-/* Media queries */
 @media (min-width: 992px) {
     /* desktop: card opens to the right */
     .header .section {

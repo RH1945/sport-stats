@@ -84,7 +84,7 @@ footer {
     border: 1px solid #e7e9f3;
 }
 
-/* Placeholder styles */
+/* General styles */
 
 #map {
     width: 100%;
@@ -97,29 +97,22 @@ footer {
     font-size: 48px;
 }
 
-logo {
-    position: relative;
-    max-height: 1rem;
-    max-width: 1rem;
-    padding: 5px;
-}
-
-.guide {
-    background-image: url("../images/bg-image.jpg");
+#image .guide {
+    background-image: url("https://raw.githubusercontent.com/RH1945/sport-stats/refs/heads/main/assets/images/bg-image.webp");
     background-size: cover;
     background-position: center;
-    filter: contrast(40%);
 }
 
-.guide h1 {
-    color: white;
+#image .guide h1, h2 {
+    color: #ffffff;
     text-shadow: 1px 1px 2px black;
     font-family: var(--primary-font);
 }
 
-.guide p {
-    color: white;
+#image .guide p {
+    color: #ffffff;
     font-family: var(--secondary-font);
+    padding-bottom: 12px;
 }
 
 h2 {
@@ -196,7 +189,7 @@ footer h5 {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
-    text-shadow: 1px;
+    text-shadow: 1px 1px 2px black;
 }
 
 .icon-container {
@@ -390,13 +383,6 @@ footer h5 {
     color: #162335;
 }
 
-/* Small screens: keep the card to the right; let it shrink a bit */
-@media (max-width: 640px) {
-    #team-card {
-        flex-basis: 320px;
-        max-width: 320px;
-    }
-}
 /*-----------------------*/
 /*-----Media queries-----*/
 
@@ -413,9 +399,62 @@ footer h5 {
     }
 }
 
-@media (min-width: 992px) {
-    /* desktop: card opens to the right */
-    .header .section {
-        grid-template-columns: 1fr min(380px, 35vw);
+
+/* ============================================================================
+   =============== MAP + CARD RESPONSIVE LAYOUT ===============================
+   ============================================================================ */
+
+.map-card .map-card__row {
+    display: grid;
+    gap: 16px;
+}
+
+/* Laptop and up: row with 75% / 25% split */
+@media (min-width: 1024px) {
+    .map-card .map-card__row {
+        grid-template-columns: 3fr 1fr; /* 75% / 25% */
+        align-items: start;
     }
 }
+
+/* Map column should stretch nicely */
+.map-card__col--map #map {
+    width: 100%;
+    min-height: 420px; /* adjust if you need taller map */
+}
+
+/* Card column owns the aside (the card content you already render) */
+.map-card__col--card {
+    /* ensure the aside behaves like a column and doesn't stretch weirdly */
+    display: block;
+}
+
+/* Optional: give the stacked layout a bit of breathing room on small screens */
+@media (max-width: 1023.98px) {
+    .map-card__col--map { margin-bottom: 12px; }
+}
+.map-card__col--card {
+    max-width: 420px;
+}
+
+/* Base: single column (map on top, card below) */
+.map-card .map-card__row {
+    display: grid;
+    gap: 16px;
+}
+
+/* Laptop and up: two columns, but let the MAP take all remaining space.
+   The CARD keeps a comfy, clamped width (no forced percentage). */
+@media (min-width: 1024px) {
+    .map-card .map-card__row {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+        align-items: start;
+    }
+}
+
+
+/* Card column: no extra constraints; it will use the clamp above */
+.map-card__col--card {
+    display: block;
+}
+

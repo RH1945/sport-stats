@@ -4,9 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--map-->
-    <script type="text/javascript" src="assets/js/mapdata.js"></script>
-    <script type="text/javascript" src="assets/js/usmap.js"></script>
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +11,7 @@
         rel="stylesheet">
     <!-- Description-->
     <meta name="description"
-        content="Boardwalk Games, your ultimate gaming retreat! Perfect for casual gamers, enthusiasts, and student gatherings. Visit us for your next adventure in board gaming.">
+        content="A responsive, searchable database of NBA players showcasing an API implementation. Hackathon Code Institute/Oct 2025.">
     <!-- icons -->
     <!--    <a href="https://www.flaticon.com/free-icons/nba" title="nba icons">Nba icons created by Chanut-is-Industries - Flaticon</a>-->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
@@ -25,7 +22,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- custom css -->
     <link href="assets/css/styles.css" rel="stylesheet">
-    <!--Font Awesoem-->
+    <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/d04cea58f7.js" crossorigin="anonymous"></script>
     <!-- Title -->
     <title>Stats all Folks</title>
@@ -45,7 +42,7 @@
     </nav>
 
     <!-- Jumbatron  -->
-    <section class="image">
+    <section id="image">
         <section class="guide">
             <div class="container text-center">
                 <div class="jumbotron">
@@ -68,15 +65,22 @@
             </div>
         </section>
     </section>
-    <!-- Map  -->
-    <section>
-        <div class="container text-center">
-            <div class="section">
-                <div id="map"></div>
-                <div class="value"></div>
+    <!-- Map & Team Card -->
+    <section class="map-card">
+        <div class="container">
+            <div class="map-card__row">
+                <!-- Map column -->
+                <div class="map-card__col map-card__col--map">
+                    <div id="map"></div>
+                    <div class="value"></div>
+                </div>
+
+                <!-- Card -->
+                <aside id="team-card" class="map-card__col map-card__col--card"></aside>
             </div>
         </div>
     </section>
+
 
     <main>
 
@@ -126,6 +130,9 @@
         </div>
     </footer>
 
+    <!--map-->
+    <script  src="assets/js/mapdata.js"></script>
+    <script  src="assets/js/usmap.js"></script>
     <!-- Bootstrap JS  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

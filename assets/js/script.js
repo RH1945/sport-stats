@@ -4,7 +4,7 @@
 const teamSelect = document.querySelector("select");
 const clickSound = new Audio("assets/media/click-345983.mp3");
 const successSound = new Audio("assets/media/goodresult-82807.mp3");
-successSound.volume = 0.3; // Sample very loud
+successSound.volume = 0.1; // Sample very loud
 clickSound.preload = "auto"; // Pre-loads the sample as it will be used alot
 
 // // Event listeners
@@ -15,20 +15,6 @@ function fetchTeam() {
     // Play the click sound
     clickSound.currentTime = 0; // This rewinds it if played before
     clickSound.play();
-
-    // Delay before playing this sound
-    // setTimeout(() => {
-    //     successSound.currentTime = 0;
-    //     successSound.play();
-    // }, 600); // 600ms delay
-
-    //     // Change the text
-    //     paragraph.style.color = "blue";
-    //     paragraph.style.fontSize = "5rem";
-    // }
-    //     // Change the text
-    //     paragraph.style.color = "blue";
-    //     paragraph.style.fontSize = "5rem";
 }
 
 // ============================================================================
@@ -255,6 +241,18 @@ function fetchTeam() {
 })();
 
 
+function ensureCardContainers() {
+    const map = document.getElementById('map');
+    if (!map) return;
+    if (!document.getElementById('team-card')) {
+        const aside = document.createElement('aside');
+        aside.id = 'team-card';
+        map.parentElement.appendChild(aside);
+    }
+}
+
+
+
 // =============================================================
 //============== Games calendAr (with an A!!!)==================
 // =============================================================
@@ -368,14 +366,12 @@ async function displayGames(teamId = null) {
             "<p>Failed to load games. Please try again later.</p>";
     }
 }
-
 // Event listener for dropdown change
 teamsList.addEventListener("change", () => {
     // Set selectedTeamId to the dropdown’s current value or undefined if value is empty
     const selectedTeamId = teamsList.value || null;
     displayGames(selectedTeamId);
 });
-
 // Initialise
 document.addEventListener("DOMContentLoaded", async function () {
     await populateTeams();
@@ -390,40 +386,3 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     displayGames(selectedTeamId);
 });
-
-// // local JSON file fetch
-// async function loadTeams() {
-//     try {
-//         const response = await fetch(
-//             "assets/sports-data/tableConvert.com_0iyg4w.json"
-//         );
-//         console.log("its working");
-
-//         if (!response.ok) {
-//             throw new Error(`HTTP error ${response.status}`);
-//         }
-//         // Put JSON data into an array
-//         const teamData = await response.json();
-
-//         const container = document.querySelector(".value");
-
-//         container.innerHTML = "";
-
-//         teamData.forEach((team, index) => {
-//             const teamDiv = document.createElement("div");
-//             // teamDiv.classList.add("team-card");
-
-//             teamDiv.innerHTML = `
-//           <p><strong>Team ${index + 1}</strong></p>
-//           <p>Offense Four Factors: ${team["Offense Four Factors"]}</p>
-//           <p>Defense Four Factors: ${team["Defense Four Factors"]}</p>`;
-//             container.appendChild(teamDiv);
-//         });
-//     } catch (error) {
-//         // Error handling
-//         console.error("error loading JSON", error);
-//     }
-// }
-
-// // Runs when the page loads
-// document.addEventListener("DOMContentLoaded", loadTeams);

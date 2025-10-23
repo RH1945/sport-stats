@@ -2,6 +2,7 @@
 ### [🔗 Live site](https://rh1945.github.io/sport-stats/)
 *A responsive, searchable database of NBA teams demonstrating API integration, data visualization, and responsive UI/UX design.*
 
+![amiresponsiveblank.png](assets/images/amiresponsiveblank.png)
 ---
 
 ## 👥 Team
@@ -41,10 +42,13 @@
 
 ## 🧠 Overview
 
-Sport-Stats is an interactive web application built during the **Code Institute Hackathon (Oct 2025)**.  
-It displays all 30 NBA teams on a responsive U.S. map. When a user clicks a team, a card slides out showing real-time statistics such as win/loss record, true shooting percentage, and home arena.
+Sport-Stats is an interactive web application built during the **Code Institute Hackathon Full Stack (Oct 2025)**.  
+It displays all 30 NBA teams on a responsive U.S. map. When a user clicks a team, a card slides out showing real-time 
+statistics such as win/loss record, true shooting percentage, and home arena.
 
-Originally designed to showcase API usage, the project evolved into a clean, maintainable interface powered by both CSV-based data and external endpoints.
+Originally designed to showcase API usage for the map, the project evolved into a clean, maintainable interface powered 
+by both CSV-based data and external endpoints. And the Api is showcased with the use of a calendar which shows upcoming 
+NBA games.
 
 ---
 
@@ -65,22 +69,23 @@ Originally designed to showcase API usage, the project evolved into a clean, mai
 ### Project Outline
 
 The project started as a concept to visualize live NBA statistics via public APIs.  
-Due to API access limitations and CORS restrictions, the team transitioned to a hybrid data solution — combining a curated CSV dataset with fallback API calls.  
-The goal was to demonstrate **data integration**, **responsive design**, and **team collaboration** under time constraints.
+Due to API access limitations and CORS restrictions, the team transitioned to a hybrid data solution — combining a 
+curated CSV dataset with fallback API calls.  
+The goal was to demonstrate **data integration**, **responsive design**, and **team collaboration**
+under time constraints.
 
 ---
 
 ## 🏗️ Architecture
 
-/assets
-├── css/styles.css
-├── js/script.js
-├── js/mapdata.js
-├── images/
-│ └── hackathon-basketball/
-└── data/teams.csv
-index.html
-README.md
+- /assets
+- ├── css/styles.css
+- ├── js/script.js
+- ├── js/mapdata.js
+- ├── images/
+- │ └── hackathon-basketball/
+- └── data/teams.csv
+
 
 
 - **`index.html`** – main structure and semantic layout.
@@ -106,7 +111,7 @@ Wireframes were iteratively adjusted as responsiveness and real-time interactivi
 ### The Header
 
 The header serves as a simple guide to using the site.  
-The design intentionally mirrors the **NBA color palette**, using strong reds and blues to evoke identity and trust.  
+The design intentionally mirrors the **NBA color palette**, using strong reds to evoke identity and trust.  
 A subtle instructional paragraph helps users understand how to explore the map and stats.
 
 ![header.png](assets/images/header.png)
@@ -133,7 +138,7 @@ The card design adapts between views:
 - On mobile, it transitions into view under the map.  
   This behavior ensures accessibility and readability on all devices.
 
-![dropped-calendar.png](assets/images/dropped-calendar.png)
+![dropped-calendar.png](assets/images/amiresponsive-card.png)
 
 ---
 
@@ -180,6 +185,9 @@ Commit history was kept descriptive to ensure clarity during the hackathon.
 - [Google Fonts](https://fonts.google.com/) — typography
 - Native **HTML5 / CSS3 / JS**
 
+### Extra sources (Videos, docs and guides)
+- 
+
 ---
 
 ## 💻 Development
@@ -190,6 +198,24 @@ Development followed a modular approach:
 3. Implement CSV parsing and card generation.
 4. Debug z-index and responsiveness across breakpoints.
 5. Polish UX with animations and consistent branding.
+6. Testing, debugging, documenting, and presenting.
+
+
+
+The primary issue when developing the map team API was with CORS, we tried using  
+a local proxy to make the data appear as same-origin, but the proxy would not be able
+to jump over the CORS problem, so it shot back 404 errors to the main page.
+
+![bugs-cors](assets/images/bugs-cors.png)
+
+We decided to change the API element of the website to just the calendar. This was the biggest hurdle of the project
+taking us about 1.5 days to decide against it.
+* Improvements with more time
+  - Adjust font size of the select options and Buy Tickets to improve accessibility
+  - Create hover function for buy Tickets to aide accessibility
+  - Adjust dates for games displayed to full season
+  - Include scores for each fixture
+
 
 ---
 
@@ -220,6 +246,8 @@ Testing included:
 
 - A white gap might show between map and card when resizing the window.
 - Map scaling occasionally clips logos when zooming on smaller devices.
+- Calendar is showing games that have already happened.
+- Calendar text inside the box displaying in blue on deployed site
 
 ---
 
@@ -231,5 +259,12 @@ Testing included:
 - Thank you, Mark Briscoe and Dillon MCcaffrey for the tutoring, and project direction.
 
 ---
+
+### Team Reflections
+
+"It was an absolute pleasure working with Rafael and Richard during the 3-day Hackathon. Their creativity, teamwork,
+and problem-solving skills made the experience both enjoyable and productive. We collaborated seamlessly, shared ideas 
+openly, and supported each other under tight deadlines. I’m really proud of what we achieved together —
+it was a great example of what strong teamwork can accomplish in such a short time."
 
 *Made with code by Rafael, James and Richard*

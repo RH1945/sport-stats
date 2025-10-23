@@ -2,6 +2,8 @@
 p {
     color: orangered;
     font-weight: bold;
+    font-family: var(--secondary-font);
+    text-shadow: 1px 1px 2px black;
 }
 
 .text-center {
@@ -109,7 +111,7 @@ logo {
 .guide h1 {
     color: white;
     text-shadow: 1px 1px 2px black;
-    font-family: "Fugaz One", sans-serif;
+    font-family: var(--primary-font);
 }
 
 h2 {

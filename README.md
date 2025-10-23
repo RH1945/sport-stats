@@ -134,17 +134,11 @@ Contrary to many sport website that tend to have sharp and neon colors.
 
 
 ---
-## Known Bugs
 
-##
-##
-##
-##
-##
-##
-##
-##
-##
-##
-##
-##
+## AI
+## Git 
+## Libraries and frameworks
+## Development
+## Deployment
+## Testing 
+## Known Bugs

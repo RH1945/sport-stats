@@ -22,7 +22,7 @@ var simplemaps_usmap_mapdata={
         location_opacity: 0.8,
         location_hover_opacity: 1,
         location_url: "",
-        location_size: "36",
+        location_size: "40",
         location_border_color: "#FFFFFF",
         location_border: 2,
         location_hover_border: 2.5,

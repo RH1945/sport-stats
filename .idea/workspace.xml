@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e2ae38b-388c-4ad3-900d-d40030fe44c3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/images/dropped-calendar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/header.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/map-area.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/news-calendar-footer.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/mapdata.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/mapdata.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/landing_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +74,7 @@
     "git-widget-placeholder": "main",
     "ignore_missing_gitignore": "true",
     "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/Rafaelshs/WebstormProjects/sport-stats/assets/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,6 +85,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/images" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -97,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1761204742651</updated>
-      <workItem from="1761204744300" duration="13010000" />
+      <workItem from="1761204744300" duration="14854000" />
     </task>
     <servers />
   </component>

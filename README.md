@@ -32,9 +32,61 @@ Example:
 
 
 ---
+## Design
 
-## Wireframes
+### Wireframes
+ 
+The first idea was to make something similar to a team building 
+website using current stats (with and API) to calculate your team's strenght  
+given the availability of the sport API's and their price, we revised 
+the scope, the options available to us, and decide to build a responsive
+team map that show some important information, in addition to a calendar for
+upcoming games and recent ESPN news.
+
 
 ![img.png](img.png)
+---
+### The header
+
+As the project template asked for a single page website we saw no need for a 
+functioning Navigation bar, we decided to keep it simple
+and representative of the website purpose, hence the inclusion of the NBA red.
+
+The next most important thing was to show the user how to navigate the site
+and how to use the tools. So, the header shows in simple terms how to find and use the 
+map and calendar. behind the header we wanted to add an inclusive background that had the NBA
+team, logos and some player's numbers.
+
+![header.png](assets/images/header.png)
+---
+### The map
+
+The map went through different version of responsiveness, the team tried to keep
+it as the central idea for the website. The card proved difficult, going under the
+z-index of the map even at no matter what we did, the Simplemaps documentation is
+not as up to date as we would have hoped for such a great tool. Changing what are normally
+cities to the "capitals" of our teams, adding their logos and names on hover was our 
+limit for simplicity and time. 
 
 
+![map-area.png](assets/images/map-area.png)
+---
+### Card in different views
+
+
+
+![dropped-calendar.png](assets/images/dropped-calendar.png)
+---
+### Color palettes
+
+for the general colors of the website we decided
+to go with the colors of the NBA logo:
+![NBA PALLETE.png](assets/images/NBA%20PALLETE.png)
+---
+
+For the map, given that it was the grounding element of the project,
+our choice was to go for earthy tones that represented the depth of 
+the sport for the country. Also, we wanted somewhat calm colors. 
+Contrary to many sport website that tend to have sharp and neon colors.
+
+![MAP PALLETE.png](assets/images/MAP%20PALLETE.png)
